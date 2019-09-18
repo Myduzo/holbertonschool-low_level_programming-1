@@ -1,4 +1,4 @@
-/**
+**
  *This document uses the puts function to write out a character string
  */
 #include <stdio.h>
@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	puts("\"Programming is like building a multilingual puzzle \n");
+	puts("\"Programming is like building a multilingual puzzle");
 	/**
 	 *This return function will return a value 0
 	 */
