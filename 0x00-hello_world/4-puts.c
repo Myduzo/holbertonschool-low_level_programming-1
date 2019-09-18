@@ -1,15 +1,12 @@
-/**
- *This document uses the puts function to write out a character string
- */
 #include <stdio.h>
+
 /**
- *The main function is very necessary in C programming
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
-	/**
-	 *This return function will return a value 0
-	 */
 	return (0);
 }
