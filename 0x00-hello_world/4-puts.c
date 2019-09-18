@@ -1,4 +1,4 @@
-**
+/**
  *This document uses the puts function to write out a character string
  */
 #include <stdio.h>
