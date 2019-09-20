@@ -1,21 +1,21 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Prints all possible combos of single digit numbers separated by a comma and space.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
 	int j;
-	int t = '9';
 
-	for (j = '0'; j <= '8'; j++)
+	for (j = '0'; j <= '9'; j++)
 	{
-		putchar(j);
-		putchar(',');
+		if (j < '9')
+			putchar(j);
+			putchar(',');
+			putchar(' ');
 	}
-	putchar(t);
 	putchar('\n');
 	return (0);
 }
