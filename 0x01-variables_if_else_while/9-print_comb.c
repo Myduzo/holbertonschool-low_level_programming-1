@@ -12,7 +12,6 @@ int main(void)
 	for (j = '0'; j <= '9'; j++)
 	{
 		putchar(j);
-
 		if (j <= '8')
 		{
 			putchar(',');
