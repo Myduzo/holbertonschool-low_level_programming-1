@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-/*
+/**
  * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char j;
+	int j;
 	char t;
 
 	for (j = '0'; j <= '9'; j++)
