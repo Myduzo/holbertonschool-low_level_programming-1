@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints all possible combos of single digit numbers separated by a comma and space.
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
