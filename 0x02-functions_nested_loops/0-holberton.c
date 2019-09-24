@@ -8,12 +8,13 @@
 int main(void)
 {
 	char *flav = "Holberton";
-	int i = 0;
+	int c = 0;
 
-	while (flav[i] != '\0')
+	while (flav[c] != '\0')
 	{
-		_putchar(flav[i]);
-		i++;
+		_putchar(flav[c]);
+		c++;
 	}
+	_putchar('\n');
 	return (0);
 }
