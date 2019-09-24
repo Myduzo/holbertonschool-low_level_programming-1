@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "holberton.h"
 
 /**
  * main - Entry point
@@ -7,15 +7,13 @@
  */
 int main(void)
 {
-	putchar('H');
-	putchar('o');
-	putchar('l');
-	putchar('b');
-	putchar('e');
-	putchar('r');
-	putchar('t');
-	putchar('o');
-	putchar('n');
-	putchar('\n');
+	char *flav = "Holberton";
+	int i = 0;
+
+	while (flav[i] != '\0')
+	{
+		_putchar(flav[i]);
+		i++;
+	}
 	return (0);
 }
