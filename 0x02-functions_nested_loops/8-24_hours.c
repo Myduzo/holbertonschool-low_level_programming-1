@@ -29,7 +29,7 @@ void jack_bauer(void)
 					fourth++;
 				}
 				third++;
-				fourth = 0;
+					fourth = 0;
 			}
 			second++;
 		}
