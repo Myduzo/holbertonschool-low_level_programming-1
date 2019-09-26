@@ -14,19 +14,23 @@ int main(void)
 	{
 		if (!(test % 15))
 		{
-			printf("FizzBuzz ");
+			printf(" ");
+			printf("FizzBuzz");
 		}
 		else if (!(test % 3))
 		{
-			printf("Fizz ");
+			printf(" ");
+			printf("Fizz");
 		}
 		else if (!(test % 5))
 		{
-			printf("Buzz ");
+			printf(" ");
+			printf("Buzz");
 		}
 		else
 		{
-			printf("%d ", test);
+			printf(" ");
+			printf("%d", test);
 		}
 	}
 	printf("\n");
