@@ -3,23 +3,23 @@
 /**
  * more_numbers - prints 0-14 ten times
  *
- * Description: Prints 0-14 10x.
+ * Description: Prints 0-14 ten times.
  * Return: Always 0.
  */
 void more_numbers(void)
 {
-	int num = 0;
-	int numb;
+	int row, col;
 
-	while (num < 10)
+	for (row = 0; row <= 10; row++)
 	{
-		numb = 48;
-		while (numb <= 57)
+		for (col = 0; col <= 10; col++)
 		{
-			_putchar(numb);
-			numb++;
+			if (col > 9)
+			{
+				_putchar((col / 10) + '0');
+			}
+			_putchar((col % 10) + '0');
 		}
 		_putchar('\n');
-		num++;
 	}
 }
