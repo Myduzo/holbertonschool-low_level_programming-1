@@ -8,14 +8,12 @@
  */
 void jack_bauer(void)
 {
-	int first, second, third, fourth;
+	int first = 0, second = 0, third = 0, fourth = 0;
 
-	first = 0;
 	while (first <= 2)
 	{
-		while (second <= 3)
+		while (second <= 9 && first < 3)
 		{
-			third = 0;
 			while (third <= 5)
 			{
 				while (fourth <= 9)
@@ -26,13 +24,22 @@ void jack_bauer(void)
 					_putchar(third + '0');
 					_putchar(fourth + '0');
 					_putchar('\n');
+					if ((first == 2) && (second == 3) && (third == 5) && (fourth == 9))
+						break;
 					fourth++;
 				}
+				if ((first == 2) && (second == 3) && (third == 5) && (fourth == 9))
+					break;
 				third++;
-					fourth = 0;
+				fourth = 0;
 			}
+			if ((first == 2) && (second == 3) && (third == 5) && (fourth == 9))
+				break;
 			second++;
+			third = 0;
 		}
+		if ((first == 2) && (second == 3) && (third == 5) && (fourth == 9))
+			break;
 		first++;
 		second = 0;
 	}
