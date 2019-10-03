@@ -8,14 +8,19 @@
  */
 void puts2(char *str)
 {
+	/* declared variable to count the string */
 	int count;
 
+	/* counts every other char from 0 to the null */
 	for (count = 0; count < str[count]; count += 2)
 	{
+		/* stops before the null */
 		if (count - 1 != '\0')
 		{
+			/* prints the string */
 			_putchar(str[count]);
 		}
 	}
+	/* prints a new line */
 	_putchar('\n');
 }
