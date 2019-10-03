@@ -12,13 +12,18 @@ void puts_half(char *str)
 	int len = _strlen(str);
 	int half = len / 2;
 	int second;
-	int count;
 
-	/* loops for the second half */
-	for (count = half, second = half; count <= len; count++, second++)
+	/* start at the half way point and loop to the end */
+	for (second = half; second <= len; second++)
 	{
-		_putchar(str[second]);
+		/* only capture char that's not the null */
+		if (second != '\0')
+		{
+			/* print the second half */
+			_putchar(str[second]);
+		}
 	}
+	/* print new line */
 	_putchar('\n');
 }
 
