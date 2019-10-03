@@ -8,13 +8,14 @@
  */
 void puts_half(char *str)
 {
-	/* initialized the full len, first half & second half */
+	/* initialized for full length, half length, second half & counter*/
 	int len = _strlen(str);
-	int first = len / 2;
+	int half = len / 2;
 	int second;
+	int count;
 
-	/* loops through the second half only & end before null */
-	for (second = first; second != '\0'; second++)
+	/* loops for the second half */
+	for (count = half, second = half; count <= len; count++, second++)
 	{
 		_putchar(str[second]);
 	}
