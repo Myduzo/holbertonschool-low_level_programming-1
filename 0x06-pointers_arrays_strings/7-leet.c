@@ -19,7 +19,7 @@ char *leet(char *encode)
 	/* loop through the string until null */
 	for (count1 = 0; encode[count1] != '\0'; count1++)
 	{
-		/* loop through to mix the alpha to the string */
+		/* loop through to match the alpha to the string */
 		for (count2 = 0; count2 <= 9; count2++)
 		{
 			/* replace char in string that matches the alphas */
