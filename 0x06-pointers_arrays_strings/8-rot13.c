@@ -13,8 +13,8 @@ char *rot13(char *encode)
 	int count2;
 
 	/* declare arrays */
-	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvqxyz";
-	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvqxyzabcdefghijklm";
+	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	/* loop through the string until null */
 	for (count1 = 0; encode[count1] != '\0'; count1++)
