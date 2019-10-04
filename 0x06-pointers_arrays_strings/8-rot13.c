@@ -1,30 +1,34 @@
 #include "holberton.h"
 
 /**
- * *rot13 - function that encodes a string every 13th place
+ * *rot13 - function that encodes a string
  * @encode: letters and integers
- * Description: Encode with integers
+ * Description: ROT13 ("rotate by 13 places")
  * Return: encryption
  */
 char *rot13(char *encode)
 {
-	/* declare counter variable */
+	/* declare counter variables */
 	int count1;
 	int count2;
 
 	/* declare arrays */
-	char *upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char *lower = "abcdefghijklmnopqrstuvwxyz";
+	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvqxyz";
+	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvqxyzabcdefghijklm";
 
 	/* loop through the string until null */
 	for (count1 = 0; encode[count1] != '\0'; count1++)
 	{
-		/* loop through to mix the alpha to the string */
-		for (count2 = 0; encode[count2] != '\0'; count2++)
+		/* loop through to 51 because it's 2x the alphabet less the null */
+		for (count2 = 0; count2 <= 51; count2++)
 		{
-			if (upper[0] == encode[13])
+			/* if the index of the string is equivalent to the input) */
+			if (encode[count1] == input[count2])
 			{
-				encode[13] = lower[0];
+				/* set the index of the string to the out array */
+				encode[count1] = output[count2];
+				/* stop it from looking for other equivalence */
+				break;
 			}
 		}
 	}
