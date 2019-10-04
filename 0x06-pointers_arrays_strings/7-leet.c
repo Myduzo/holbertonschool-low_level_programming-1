@@ -11,7 +11,7 @@ char *leet(char *encode)
 	/* declare counter variables */
 	int count1;
 	int count2;
-	
+
 	/* declare arrays */
 	int numbers[] = {'4', '3', '0', '7', '1', '4', '3', '0', '7', '1'};
 	int alphas[] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
