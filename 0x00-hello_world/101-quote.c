@@ -1,20 +1,12 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
-#include <sys/types.h>
 
 /**
- * main - Entry point
- *
+ * main - prints stderr
+ * Description: Printing a standard error message
  * Return: Always 1 (Success)
  */
-int main(int argc, char *argv[])
+int main(void)
 {
-	int stderror;
-	char buf[58];
-	stderror = open(argv[1], O_WRONLY | O_CREAT);
-	write (stderror, "and that piece of art is useful\" - Dora Korpar, 2015-10-19", strlen(buf));
-	close (stderror);
+	perror ("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
 	return (1);
 }
