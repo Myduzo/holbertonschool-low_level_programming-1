@@ -3,7 +3,7 @@
 /**
  * print_number - function that prints an integer
  * @n: integer
- * Description: 6893/1000 = 6 | 6893/100 = 68 | 6893/10 = 689 | 6893/1 = 3
+ * Description: Prints an integer
  * Return: Integers
  */
 void print_number(int n)
@@ -11,30 +11,30 @@ void print_number(int n)
 	int count;
 	int length;
 
-	if (n < 0) /* look for a negative integer */
+	if (n < 0)
 	{
 		_putchar('-');
-		if (n == -2147483648) /* the smallest negative integer known */
-		{	/* change -2147483648 to -2147483647 */
+		if (n == -2147483648)
+		{
 			count = 1;
 			n = n + 1;
 		}
-		n = -n; /* change -2147483647 to 2147483647 (largest integer known) */
+		n = -n;
 	}
-	for (length = 1000000000; length != 1;) /* set length & loop zeros */
+	for (length = 1000000000; length != 1;)
 	{
-		if (n >= length) /* at the longest possible length */
+		if (n >= length)
 		{
-			_putchar(((n / length) % 10) + '0'); /* print all digits except the ones */
+			_putchar(((n / length) % 10) + '0');
 		}
-		length = length / 10; /* outcome = math */
+		length = length / 10;
 	}
-	if (count == 1) /* if it's the smallest integer */
+	if (count == 1)
 	{
-		_putchar(((n % 10) + 1) + '0'); /* print the ones place */
+		_putchar(((n % 10) + 1) + '0');
 	}
 	else
 	{
-		_putchar(n % 10 + '0'); /* for all other integers, print the ones place */
+		_putchar(n % 10 + '0');
 	}
 }
