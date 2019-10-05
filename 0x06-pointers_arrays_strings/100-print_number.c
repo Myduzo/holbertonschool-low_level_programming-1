@@ -11,7 +11,7 @@ void print_number(int n)
 	int count;
 	int length;
 
-	if (n < 0) /* look for the smallest negative integer */
+	if (n < 0) /* look for a negative integer */
 	{
 		_putchar('-');
 		if (n == -2147483648) /* the smallest negative integer known */
