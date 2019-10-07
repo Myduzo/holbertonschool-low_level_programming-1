@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * *_strchr - function locates a char in a string
@@ -12,21 +13,23 @@ char *_strchr(char *s, char c)
 	/* declare iteration variable */
 	int iterate;
 
-	/* declare temporary pointer */
-	char *locate = s;
-
-	/* look through the entire string to the null */
-	for (iterate = 0; s[iterate] != '\0'; iterate++)
+	/* look through the entire string */
+	/* stop if there's no string/value and at null byte */
+	for (iterate = 0; (s != NULL && s[iterate] != '\0'); iterate++)
 	{
 		/* find char in string */
 		if (s[iterate] == c)
 		{
-			/* take the memory address of the char */
-			locate = &s[iterate];
-			/* returns pointer to char */
-			return (locate);
+			/* returns the memory location of char */
+			return (&s[iterate]);
 		}
 	}
-	/* returns null */
-	return (locate + 1);
+	/* if char is null byte */
+	if (c == '\0')
+	{
+		/* returns null byte */
+		return (&s[iterate]);
+	}
+	/* if char is not found */
+	return (NULL);
 }
