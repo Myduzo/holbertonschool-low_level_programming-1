@@ -14,8 +14,10 @@ char *_memset(char *s, char b, unsigned int n)
     /* declare iteration variable */
 	unsigned int iterate;
 
+	/* fill the block of memory up to the size of n */
 	for (iterate = 0; iterate < n; iterate++)
 	{
+		/* fill the block of memory with b */
 		s[iterate] = b;
 	}
 	return (s);
