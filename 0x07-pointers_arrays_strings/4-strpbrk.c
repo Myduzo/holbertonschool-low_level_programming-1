@@ -33,8 +33,8 @@ char *_strpbrk(char *s, char *accept)
 		/* if accept is just a null byte (aka no value) */
 		if (accept == '\0')
 		{
-		/* returns null byte */
-		return (&s[iterate1]);
+			/* returns null byte */
+			return (&s[iterate1]);
 		}
 	}
 	/* if there's nothing to match */
