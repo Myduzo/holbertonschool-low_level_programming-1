@@ -9,7 +9,7 @@
  */
 char *_strchr(char *s, char c)
 {
-    /* declare iteration variable */
+	/* declare iteration variable */
 	int iterate;
 
 	/* declare temporary pointer */
@@ -28,5 +28,5 @@ char *_strchr(char *s, char c)
 		}
 	}
 	/* returns null */
-	return ('\0');
+	return (locate + 1);
 }
