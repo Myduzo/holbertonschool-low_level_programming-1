@@ -17,26 +17,31 @@ unsigned int _strspn(char *s, char *accept)
 	/* declare an incrementation variable */
 	unsigned int numOfbytes = 0;
 
+	/* use the _strlen function */
 	int len = _strlen(accept);
 
-	/* look through the entire string until null byte */
+	/* look through the original string until null byte */
 	for (iterate1 = 0; s[iterate1] != '\0'; iterate1++)
 	{
-		/* look through the entire string until null byte */
+		/* look through the entire accept string including null byte */
 		for (iterate2 = 0; iterate2 <= len; iterate2++)
 		{
-			/* if the string matches one of the bytes in accept */
+			/* if the original string matches a char in the accept string */
 			if (s[iterate1] == accept[iterate2])
 			{
+				/* then, increment for length */
 				numOfbytes++;
 				break;
 			}
+			/* if the string is at null byte */
 			if (accept[iterate2] == '\0')
 			{
+				/* return length */
 				return (numOfbytes);
 			}
 		}
 	}
+	/* return length */
 	return (numOfbytes);
 }
 
