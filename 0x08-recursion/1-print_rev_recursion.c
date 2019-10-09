@@ -9,6 +9,7 @@
  */
 void _print_rev_recursion(char *s)
 {
+	/* BASE CASE - assumed string will always have a null byte */
 	/* if pointer is not null byte */
 	if (*s != '\0')
 	{
