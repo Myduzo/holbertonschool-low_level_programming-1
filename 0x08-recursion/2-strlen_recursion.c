@@ -18,7 +18,7 @@ int _strlen_recursion(char *s)
 	/* if pointer is not at null byte */
 	else
 	{
-		/* first, return 1 to start iteration */
+		/* first, return 1 to start recuration */
 		/* then, add 1 as it increments */
 		return ((1) + _strlen_recursion(s + 1));
 	}
