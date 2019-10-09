@@ -9,10 +9,18 @@
  */
 void _puts_recursion(char *s)
 {
-	_putchar(*s);
-	if (*s++ == '\0')
+	/* if pointer is not null byte */
+	if (*s != '\0')
 	{
+		/* print the first char found */
 		_putchar(*s);
+		/* move the pointer to the next index */
+		_puts_recursion(s + 1);
 	}
-	_putchar('\n');
+	/* if pointer is null byte */
+	if (*s == '\0')
+	{
+		/* print new line */
+		_putchar('\n');
+	}
 }
