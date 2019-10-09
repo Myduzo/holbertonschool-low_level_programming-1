@@ -14,28 +14,30 @@ char *_strstr(char *haystack, char *needle)
 	int i1;
 	int i2;
 
-	/* stop if there's no string/value and at null byte */
-	for (i1 = 0; haystack[i1] != '\0'; i1++)
+	/* stop loop at null byte */
+	for (i1 = 0; (haystack != NULL || haystack[i1] != '\0'); i1++)
 	{
+		/* if the loop matches a char in needle */
 		if (haystack[i1] == needle[0])
 		{
+			/* move pointer to get the next matching char */
 			for (i2 = 0; haystack[i1 + i2] == needle[i2]; i2++)
 			{
-				/* if the string matches one of the bytes in accept */
+				/* if needle is just null byte */
 				if (needle[i2] == '\0')
 				{
-					/* returns the memory location to the byte */
+					/* return the substring */
 					return (&haystack[i1]);
 				}
 			}
 		}
 	}
-	/* if accept is just a null byte (aka no value) */
+	/* if needle is just a null byte */
 	if (needle[0] == '\0')
 	{
-		/* returns null byte */
+		/* return the haystack string */
 		return (haystack);
 	}
-	/* if there's nothing to match */
-	return ('\0');
+	/* return when there's nothing in needle */
+	return (NULL);
 }
