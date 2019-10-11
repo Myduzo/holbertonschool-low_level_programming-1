@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		/* loop through the array of strings */
-		for (iterate = 1; iterate < argc; iterate ++)
+		for (iterate = 1; iterate < argc; iterate++)
 		{
 			/* prints all the arguments that's passed through */
-			printf ("%s\n", argv[iterate]);
+			printf("%s\n", argv[iterate]);
 		}
 	}
 	/* returns nothing if successful */

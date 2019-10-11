@@ -25,13 +25,13 @@ int main(int argc, char *argv[])
 			product = product * atoi(argv[iterate]);
 		}
 		/* print the product */
-		printf ("%d\n", product);
+		printf("%d\n", product);
 	}
 	/* if there's less than two arguments */
 	else
 	{
 		/* then, print Error */
-		printf ("Error\n");
+		printf("Error\n");
 	}
 	/* return 1 for Error */
 	return (1);

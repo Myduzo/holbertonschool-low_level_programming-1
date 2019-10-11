@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
 	/* void unused parameter argc */
 	/* could also use (void)argv[argc-1]; */
 	(void)argc;
-	
+
 	/* prints the program name */
 	/* it's always the first element of the argv array */
 	printf("%s\n", argv[0]);
-	
+
 	/* returns nothing if successful */
 	return (0);
 }
