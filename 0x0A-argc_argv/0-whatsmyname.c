@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * mynameis - prints program name
+ * main - prints program name
  * @argc: argument count
  * @argv: argument vector
  * Description: Write a program that prints its own name & new line
