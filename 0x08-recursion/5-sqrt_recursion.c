@@ -12,26 +12,26 @@
 int helper(int n, int x)
 {
 	/* BASE CASE */
-	/* if sqrt is zero */
-	if (x == 0)
+	/* if given integer is zero */
+	if (n == 0)
 	{
-		/* then, return 0 because sqrt of 0 is 0 */
+		/* then, return 0 because its sqrt would be  0 */
 		return (0);
 	}
-	/* if sqrt is less than zero */
-	if (x < 0)
+	/* if the sqrt of n is greater than the given integer */
+	if (x * x > n)
 	{
-		/* then, return -1 */
+		/* then, return -1 because it doesn't have a perfect sqrt */
 		return (-1);
 	}
-	/* calculates the sqrt */
+	/* if it's a perfect sqrt */
 	if (x * x == n)
 	{
-		/* return the sqrt */
-		return (x);
+		/* then, return it */
+		return (n / x);
 	}
-	/* recursive to change x */
-	return (helper(n, (x - 1)));
+	/* recursive call */
+	return (helper(n, (x + 1)));
 }
 
 /**
@@ -42,8 +42,6 @@ int helper(int n, int x)
  */
 int _sqrt_recursion(int n)
 {
-	/* initialize parameter x */
-	int x = n;
 	/* return the sqrt when found */
-	return (helper(n, x));
+	return (helper(n, 1));
 }
