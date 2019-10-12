@@ -22,13 +22,13 @@ int main(int argc, char *argv[])
 		{
 			/* multiple them */
 			/* atoi converts str to int */
-			product = product * atoi(argv[iterate]);
+			product *= atoi(argv[iterate]);
 		}
 		/* print the product */
 		printf("%d\n", product);
 	}
 	/* if there's less than two arguments */
-	else
+	else if (argc < 2)
 	{
 		/* then, print Error */
 		printf("Error\n");
