@@ -15,10 +15,10 @@ int main(int argc, char *argv[])
 
 	/* if there is something in the array of strings */
 	/* other than the program name */
-	if (argc > 1)
+	if (argc > 0)
 	{
 		/* loop through the array of strings */
-		for (iterate = 1; iterate < argc; iterate++)
+		for (iterate = 0; iterate < argc; iterate++)
 		{
 			/* prints all the arguments that's passed through */
 			printf("%s\n", argv[iterate]);
