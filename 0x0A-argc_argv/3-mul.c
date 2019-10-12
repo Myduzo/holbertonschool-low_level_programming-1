@@ -10,24 +10,23 @@
  */
 int main(int argc, char *argv[])
 {
-	/* declare counters */
-	int iterate = 1;
-	int product = 1;
+	/* declare print variable */
+	int product;
 
 	/* if there are two arguments */
-	if (argc >= 2)
+	/* need to account for the first element */
+	if (argc == 3)
 	{
-		/* take in the passing integers */
-		for (; iterate < argc; iterate++)
 		{
-			/* multiple them */
+			/* multiple the second & third arguments */
 			/* atoi converts str to int */
-			product *= atoi(argv[iterate]);
+			product = atoi(argv[1]) * atoi(argv[2]);
 		}
 		/* print the product */
 		printf("%d\n", product);
 	}
 	/* if there's less than two arguments */
+	/* need to account for the first element */
 	else if (argc < 3)
 	{
 		/* then, print Error */
