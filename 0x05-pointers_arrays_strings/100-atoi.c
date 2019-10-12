@@ -8,16 +8,23 @@
  */
 int _atoi(char *s);
 {
-	int iterate;
+	int iterate = 0;
+	int sign = 0;
 	int integer = 0;
 
 	if (s[iterate] == '\0')
 	{
 		return (0);
 	}
-	for (iterate = 0; s[iterate] != '\0'; ++iterate)
+	if (s[0] == '-')
+	{
+		sign = -1;
+		iterate++;
+		return (0);
+	}
+	for (; s[iterate] != '\0'; ++iterate)
 	{
 		integer = integer * 10 + s[iterate] - '0';
 	}
-	return (integer);
+	return (sign * integer);
 }
