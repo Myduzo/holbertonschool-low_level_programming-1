@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 		printf("%d\n", product);
 	}
 	/* if there's less than two arguments */
-	else if (argc < 2)
+	else if (argc < 3)
 	{
 		/* then, print Error */
 		printf("Error\n");
