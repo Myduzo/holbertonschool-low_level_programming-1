@@ -6,7 +6,7 @@
  * Description: Converts string to integer
  * Return: Integers
  */
-int _atoi(char *s);
+int _atoi(char *s)
 {
 	int iterate = 0;
 	int sign = 0;
