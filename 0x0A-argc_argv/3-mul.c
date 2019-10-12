@@ -18,11 +18,9 @@ int main(int argc, char *argv[])
 	/* need to account for the first element */
 	if (argc == 3)
 	{
-		{
-			/* multiple the second & third arguments */
-			/* atoi converts str to int */
-			product = atoi(argv[1]) * atoi(argv[2]);
-		}
+		/* multiple the second & third arguments */
+		/* atoi converts str to int */
+		product = atoi(argv[1]) * atoi(argv[2]);
 		/* print the product */
 		printf("%d\n", product);
 	}
