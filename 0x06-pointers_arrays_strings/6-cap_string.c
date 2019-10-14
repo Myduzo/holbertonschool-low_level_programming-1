@@ -9,23 +9,25 @@
 char *cap_string(char *caps)
 {
 	/* declare counter variables */
-	int count1;
-	int count2;
+	int iterate1;
+	int iterate2;
 
-	/* declare array */
-	char special[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', ' '};
+	/* declare array for the separators */
+	char sep[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', ' ', '\n', '\t', '\0'};
 
-	/* loop through the string until null */
-	for (count1 = 0; caps[count1] != '\0'; count1++)
+	/* loop through the string until null byte */
+	for (iterate1 = 0; caps[iterate1] != '\0'; iterate1++)
 	{
-		/* loop through the special array */
-		for (count2 = 0; special[count2] - 1 < 11; count2++)
+		/* loop through the separators until null byte */
+		for (iterate2 = 0; sep[iterate2] != '\0'; iterate2++)
 		{
-			/* change to cap at the first char or after special char */
-			if ((count1 == 0) || (caps[count1] == '\0' && special[count2]))
+			/* change to cap at the first char or after a separator */
+			if (iterate1 == 0 || (caps[iterate1 - 1] == sep[iterate2]))
 			{
-				/* match here */
-				caps[count1] = special[count2];
+				if (caps[iterate1] >= 'a' && caps[iterate1] <= 'z')
+				{
+					caps[iterate1] = caps[iterate1] - 32;
+				}
 			}
 		}
 	}
