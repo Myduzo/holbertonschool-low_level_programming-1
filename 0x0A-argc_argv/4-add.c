@@ -7,7 +7,7 @@
  * @argc: argument count
  * @argv: argument vector
  * Description: Write a program that sums two positive integers
- * Return: 1 is for Error
+ * Return: 1 is for Error & 0 is for Success
  */
 int main(int argc, char *argv[])
 {
@@ -35,15 +35,17 @@ int main(int argc, char *argv[])
 		for (iterate2 = 0; argv[iterate1][iterate2] != '\0'; iterate2++)
 		{
 			/* if a non-digit is found */
-			if (!(isdigit(argv[iterate1][iterate2])))
+			if (!isdigit(argv[iterate1][iterate2]))
 			{
 				/* print Error */
 				printf("Error\n");
+				/* return 1 for error */
 				return (0);
 			}
 		}
 	}
 	/* print the sum */
 	printf("%d\n", sum);
+	/* return 0 for success */
 	return (0);
 }
