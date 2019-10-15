@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * *_strdup - function that duplicates a string
@@ -13,29 +12,35 @@ char *_strdup(char *str)
 {
 	/* declare a pointer for the duplicate */
 	char *dup;
-
-	/* find the size of the string */
-	/* including null byte */
-	unsigned int size = strlen(str) + 1;
+	/* for finding the length of the strings */
+	unsigned int len1;
+	unsigned int len2;
 
 	/* return NULL for empty string */
-	if (str == '\0')
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-
+	/* find the length of the string */
+	for (len1 = 0; str[len1] != '\0'; len1++)
+	{
+	}
+	/* add the null byte */
+	len1++;
 	/* allocate memory for the duplicate */
-	dup = malloc(size);
+	dup = malloc(len1 * sizeof(char));
 
 	/**
-	 * copy string bytes to duplicate
-	 * memcpy(dest, src, byte)
-	 * return dup if there's space
-	 * return NULL if there isn't
+	 * if the duplicate is not more than string
+	 * copy string to duplicate
+	 * return NULL if it fails to copy
 	 */
-	if (dup != '\0')
+	if (dup != NULL)
 	{
-		memcpy(dup, str, size);
+		for (len2 = 0; len2 < len1; len2++)
+		{
+			dup[len2] = str[len2];
+		}
 		return (dup);
 	}
 	else
