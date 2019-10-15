@@ -42,7 +42,5 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	/* deallocate the memory block */
-	free(dup);
 	return (0);
 }
