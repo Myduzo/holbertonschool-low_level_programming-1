@@ -49,5 +49,5 @@ char *str_concat(char *s1, char *s2)
 	{
 		str[iterate1 + iterate2] = s2[iterate2];
 	}
-	return (0);
+	return (str);
 }
