@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *_memset(char *s, char b, unsigned int n);
-
 /**
  * _calloc - function that allocates memory
  * @nmemb: array of nmemb elements...
@@ -35,4 +33,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	/* used memset to set memory to 0 */
 	/* cast char to void */
 	return ((void *)_memset(block, 0, fullsize));
+}
+
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int iterate;
+
+	for (iterate = 0; iterate < n; iterate++)
+	{
+		s[iterate] = b;
+	}
+	return (s);
 }
