@@ -10,7 +10,7 @@
  * Return: NULL for fail
  */
 char *str_concat(char *s1, char *s2)
-{	
+{
 	/* declare a pointer for the concatenate string */
 	char *str;
 	/* declare iteration variables */
@@ -21,7 +21,7 @@ char *str_concat(char *s1, char *s2)
 	if (s2 == NULL)
 		s2 = '\0';
 	else
-	{	
+	{
 		/* find the length of the strings */
 		for (; s1[len1] != '\0'; len1++)
 			;
