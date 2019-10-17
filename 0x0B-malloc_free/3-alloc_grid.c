@@ -41,7 +41,7 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 	}
-	/* form aray */
+	/* form 2D aray */
 	for (row = 0; row < height; row++)
 	{
 		for (col = 0; col < width; col++)
