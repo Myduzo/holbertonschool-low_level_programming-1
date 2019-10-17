@@ -1,0 +1,1 @@
+The files contained in this directory are to help better understand memory allocation using malloc, calloc and realloc.  Additionally, free is used for memory deallocation and exit is used to terminate the call process.
