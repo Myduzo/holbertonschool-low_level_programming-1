@@ -23,7 +23,6 @@ int **alloc_grid(int width, int height)
 	/* return NULL if malloc fails */
 	if (grid == NULL)
 		return (NULL);
-		free(grid);
 	for (row = 0; row < height; row++)
 	{
 		/* allocate memory for a signle pointer */
