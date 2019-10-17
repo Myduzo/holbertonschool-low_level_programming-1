@@ -12,12 +12,14 @@ void *malloc_checked(unsigned int b)
 {
 	/* declare a temporary pointer */
 	unsigned int *temp;
-	
+
 	/* allocate memory */
 	temp = malloc(b);
 	/* if malloc fails, stop processing */
 	if (temp == NULL)
-		exit (98);
-	/* return pointer to allocate memory */
+	{
+		exit(98);
+	}
+	/* return pointer to allocated memory */
 	return (temp);
 }

@@ -8,16 +8,16 @@ char *_memset(char *s, char b, unsigned int n);
  * _calloc - function that allocates memory
  * @nmemb: array of nmemb elements...
  * @size: of size bytes each
- * Description: Lookup man calloc 
+ * Description: Lookup man calloc
  * Return: NULL if fail
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
-{	
+{
 	/* declare temporary pointer */
 	void *block;
 	/* declare variable for the amount of bytes to reserve */
 	unsigned int fullsize;
-	
+
 	/* if elements or bytes are 0, return NULL */
 	if (!nmemb || !size)
 		return (NULL);
