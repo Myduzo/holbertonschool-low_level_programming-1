@@ -23,28 +23,31 @@ int **alloc_grid(int width, int height)
 	/* return NULL if malloc fails */
 	if (grid == NULL)
 		return (NULL);
+	/* size of row */
 	for (row = 0; row < height; row++)
 	{
-		/* allocate memory for a signle pointer */
+		/* allocate memory for a single pointer */
 		grid[row] = malloc(sizeof(int) * width);
 		/* if the row has nothing */
 		if (grid[row] == NULL)
 		{
+			/* size of col */
 			for (col = 0; col < row; col++)
 			{
 				/* free allocated memory of rows */
-				free(grid[row]);
+				free(grid[col]);
 			}
 			/* free all allocated memory */
 			free(grid);
 			return (NULL);
 		}
 	}
-	/* form 2D aray */
+	/* form 2D array */
 	for (row = 0; row < height; row++)
 	{
 		for (col = 0; col < width; col++)
 		{
+			grid[row][col] = 0;
 		}
 	}
 	return (grid);
