@@ -7,13 +7,13 @@
  * @ptr: pointer to the memory
  * @old_size: size in bytes
  * @new_size: size in bytes
- * Description: Lookup man realloc
+ * Description: Lookup man realloc for reference
  * Return: NULL if fail
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	/* declare temporary pointer */
-	char *array;
+	void *array;
 	/* "added" memory shouldn't be initialized */
 	if (new_size > old_size)
 	{
