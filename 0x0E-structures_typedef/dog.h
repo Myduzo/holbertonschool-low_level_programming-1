@@ -3,10 +3,9 @@
 
 /**
  * struct dog - Hello, Django
- * @name: First member
- * @age: Second member
- * @owner: Third member
- *
+ * @name: char type
+ * @age: float type
+ * @owner: char type
  * Description: Define struct dog for Project 0x0E. C - struct, typedef
  */
 typedef struct dog
@@ -22,4 +21,4 @@ void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d);
 
-#endif
+#endif /* DOG_H */
