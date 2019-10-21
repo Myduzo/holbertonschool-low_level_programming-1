@@ -9,10 +9,13 @@
  */
 void print_dog(struct dog *d)
 {
+	/* declare variable for printing nothing */
+	char *print = NULL;
+
 	/* if d is NULL, print nothing */
 	if (d == NULL)
 	{
-		printf("\n");
+		printf("%s\n", print);
 	}
 	/* print Name */
 	if (d->name)
@@ -26,7 +29,7 @@ void print_dog(struct dog *d)
 	/* print Age */
 	if (d->age)
 	{
-		printf("Age: %.1f\n", d->age);
+		printf("Age: %f\n", d->age);
 	}
 	else
 	{
