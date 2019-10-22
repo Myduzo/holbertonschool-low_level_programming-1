@@ -4,20 +4,15 @@
 /**
  * print_dog - function that prints
  * @d: pointer to struct dog
- * Description: Print the elements of a struct
+ * Description: Print the members of a struct
  * Return: N/A
  */
 void print_dog(struct dog *d)
 {
-	/* declare variable to print nothing */
-	char *print = NULL;
-	/* if d is NULL, print nothing */
-	if (d == NULL)
+	/* if there's something in struct d */
+	if (d)
 	{
-		printf("%s\n", print);
-	}
-	else
-	{/* print Name */
+		/* print Name */
 		if (d->name)
 		{
 			printf("Name: %s\n", d->name);
@@ -45,4 +40,5 @@ void print_dog(struct dog *d)
 			printf("Owner: (nil)\n");
 		}
 	}
+	/* if d is NULL, print nothing */
 }
