@@ -9,8 +9,8 @@
  */
 void print_dog(struct dog *d)
 {
-	/* if there's something in struct d */
-	if (d)
+	/* if d is not NULL, print members */
+	if (d != NULL)
 	{
 		/* print Name */
 		if (d->name)
@@ -22,14 +22,8 @@ void print_dog(struct dog *d)
 			printf("Name: (nil)\n");
 		}
 		/* print Age */
-		if (d->age)
-		{
-			printf("Age: %f\n", d->age);
-		}
-		else
-		{
-			printf("Age: (nil)\n");
-		}
+		/* int type will never be NULL */
+		printf("Age: %f\n", d->age);
 		/* print Owner */
 		if (d->owner)
 		{
