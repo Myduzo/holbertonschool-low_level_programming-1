@@ -10,26 +10,26 @@ A function pointer is a pointer that points to a function.  The pointer points t
 
 	a. Variable: Usually used as a variable
 
-		int (\*cisfun)(int a, float b);
+		int (*cisfun)(int a, float b);
 
 	b. Address: Retrieve the function's memory address
 
 		void cisfun(void);
 
 		f = cisfun 
-		__or__
+		_or_
 		f = &cisfun
 
 	c. Array: Set an array of function pointers
 
-		void (\*array[])(int, float);
+		void (*array[])(int, float);
 
 	d. Argument (aka Parameter): Received as an argument and calls the function
 
 		void cisfun(void(*ptr)())
 		{
 			ptr();
-			__or__
+			_or_
 			(*ptr)();
 		}
 
