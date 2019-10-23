@@ -7,32 +7,36 @@ The source codes contained in this directory are to help better understand funct
 ===========
 **1. What are function pointers and how to use them?**  
 A function pointer is a pointer that points to a function.  The pointer points to code, not data.  It cannot allocate and/or deallocate memory.  Below are some of the ways to use function pointers.  
-```C
+
 	a. Variable: Usually used as a variable
-
+```C
 		int (*cisfun)(int a, float b);
-
+```
 	b. Address: Retrieve the function's memory address
-
-		void cisfun(void);
-
-		f = cisfun /* or f = &cisfun */
-
-	c. Array: Set an array of function pointers
-
-		void (*array[])(int, float);
-
-	d. Argument (aka Parameter): Received as an argument and calls the function
-
-		void cisfun(void(*ptr)())
+```C
+		void cisfun(int a)
 		{
-			ptr(); /* or (*ptr)() */
+			printf("C is a perfect %d\n", a);
 		}
+		int main(void)	
+		{
+			void (*ptr)(int) = cisfun; /* or &cisfun */
+			ptr(10);
+			return (0);
+		}
+```
+	c. Array: Set an array of function pointers
+```C
+		void (*array[])(int, float);
+```
+	d. Argument (aka Parameter): Received as an argument and calls the function
+```C
+		void cisfun(void(*ptr)())
 ```
 **2. What does a function pointer exactly hold?**  
 A function pointer holds the address of a function.  It points to the first byte of code of the function.  The diagram below explains the life of a function pointer.
 
-![Example](https://i.imgur.com/hqjd4jA.jpg)
+![Function Pointers](https://i.imgur.com/hqjd4jA.jpg)
 
 **3. Where does a function pointer point to in the virtual memory?**  
 A function pointer points to the memory address of a function.
