@@ -17,7 +17,7 @@ A function pointer is a pointer that points to a function.  The pointer points t
 		void cisfun(void);
 
 		f = cisfun 
-		or
+		*or*
 		f = &cisfun
 
 	c. Array: Set an array of function pointers
@@ -29,7 +29,7 @@ A function pointer is a pointer that points to a function.  The pointer points t
 		void cisfun(void(*ptr)())
 		{
 			ptr();
-			or
+			*or*
 			(*ptr)();
 		}
 
