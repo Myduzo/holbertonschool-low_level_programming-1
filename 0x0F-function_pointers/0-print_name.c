@@ -10,8 +10,9 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
+	/* if a name is passed, run function */
 	if (name)
 	{
-		f(name);
+		(*f)(name);
 	}
 }
