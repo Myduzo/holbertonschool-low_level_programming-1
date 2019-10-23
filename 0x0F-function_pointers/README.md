@@ -17,7 +17,7 @@ A function pointer is a pointer that points to a function.  The pointer points t
 		void cisfun(void);
 
 		f = cisfun 
-		_or_
+		or
 		f = &cisfun
 
 	c. Array: Set an array of function pointers
@@ -29,14 +29,14 @@ A function pointer is a pointer that points to a function.  The pointer points t
 		void cisfun(void(*ptr)())
 		{
 			ptr();
-			_or_
+			or
 			(*ptr)();
 		}
 
 **2. What does a function pointer exactly hold?**  
 A function pointer holds the address of a function.  It points to the first byte of code of the function.  The diagram below explains the life of a function pointer.
 
-![header image](https://raw.githubusercontent.com/jenntang1/Images/master/0x0F.%20C%20-%20Function%20pointers_1.jpg?token=AK5VX6VQ6L6TSEYHXM6QLAK5WBYBU)
+![header image](https://i.imgur.com/hqjd4jA.jpg)
 
 **3. Where does a function pointer point to in the virtual memory?**  
 A function pointer points to the memory address of a function.
