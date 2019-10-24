@@ -58,7 +58,7 @@ int op_div(int a, int b);
  * op_mod - function for a remainder
  * @a: integer type
  * @b: integer type
- * Description: This program will return 
+ * Description: This program will return
  * a remainder as a result of division.
  * Return: Remainder
  */
