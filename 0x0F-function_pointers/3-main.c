@@ -12,9 +12,6 @@ int main(int argc, char *argv[])
 {
 	/* declare function pointer */
 	int (*result)(int, int);
-	/* declare & initialize returning arguments */
-	int num1 = atoi(argv[1]);
-	int num2 = atoi(argv[3]);
 
 	/* if number of argc is wrong, print Error & exit */
 	if (argc != 4)
@@ -38,7 +35,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 	/* print result of arithmetic operation */
-	printf("%d\n", result(num1, num2));
+	/* result converts argv to int type */
+	printf("%d\n", result(atoi(argv[1]), atoi(argv[3])));
 	return (0);
 }
-
