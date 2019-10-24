@@ -1,6 +1,4 @@
-#include "calc.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "3-calc.h"
 
 /**
  * op_add - function for adding
@@ -10,7 +8,7 @@
  * a sum after adding of a & b.
  * Return: Sum
  */
-int op_add(int a, int b);
+int op_add(int a, int b)
 {
 	return (a + b);
 }
@@ -23,7 +21,7 @@ int op_add(int a, int b);
  * a difference after subtraction of a & b.
  * Return: Difference
  */
-int op_sub(int a, int b);
+int op_sub(int a, int b)
 {
 	return (a - b);
 }
@@ -36,7 +34,7 @@ int op_sub(int a, int b);
  * a product after multiplication of a & b.
  * Return: Product
  */
-int op_mul(int a, int b);
+int op_mul(int a, int b)
 {
 	return (a * b);
 }
@@ -49,7 +47,7 @@ int op_mul(int a, int b);
  * a quotient after division of a by b.
  * Return: Quotient
  */
-int op_div(int a, int b);
+int op_div(int a, int b)
 {
 	return (a / b);
 }
@@ -62,7 +60,7 @@ int op_div(int a, int b);
  * a remainder as a result of division.
  * Return: Remainder
  */
-int op_mod(int a, int b);
+int op_mod(int a, int b)
 {
 	return (a % b);
 }
