@@ -22,7 +22,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	/**
 	 * iterate all arguments
 	 * print string and then, print separator
-	 * if ptr is NULL, print nil
+	 * if ptr finds a NULl string, print nil
 	 * if separator is not NULL, print it
 	 */
 	for (i = 0; i < n; i++)
