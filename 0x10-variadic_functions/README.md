@@ -23,12 +23,12 @@ A variadic function (aka varargs function) is a function that takes an unlimited
 2. How to use va\_start, va\_arg and va\_end macros?  
 The standard arguments header in the standard library contains pre-defined macros.  These macros are usually used to support variadic functions.  The macros listed below are va\_list type used to retrieve additional arguments that's in a function.  
 
-				   | Macros   | Uses                                      |
-				   | -------- | ----------------------------------------- |
-				   | va_start | starts iterating arguments                |
-				   | va_end   | ends the iteration                        |
-				   | va_arg   | retrieves an argument                     |
-				   | va_copy  | copies contents of one va_list to another |
+	| Macros   | Uses                                      |
+	| -------- | ----------------------------------------- |
+	| va_start | starts iterating arguments                |
+	| va_end   | ends the iteration                        |
+	| va_arg   | retrieves an argument                     |
+	| va_copy  | copies contents of one va_list to another |  
   
 	An example of their uses is shown below:
 
@@ -63,7 +63,7 @@ The standard arguments header in the standard library contains pre-defined macro
 	}
 	```
 
-3. Why and how to use the const type qualifier?
+3. Why and how to use the const type qualifier?  
 A const type qualifer is a keyword initializing a static value.  The const is part of the type, not the variable.  It can be used in multiple ways like so:
 
 	**Simple use** is to lock in a variable's value.
@@ -131,9 +131,9 @@ Prototype: void print\_all(const char * const format, ...);
 The following resources were used to learn and understand variadic functions.
 
 1. stdarg(3) - Linux man page
-2. https://www.tutorialspoint.com/cprogramming/c\_variable\_arguments.htm
-3. https://en.wikipedia.org/wiki/Stdarg.h
-4. https://www.gnu.org/software/libc/manual/html\_node/Variadic-Functions.html
-5. https://www.youtube.com/watch?v=1W4oyuOdXv8
-6. https://www.thegeekstuff.com/2017/05/c-variadic-functions/
+2. <https://www.tutorialspoint.com/cprogramming/c_variable_arguments.htm>
+3. <https://en.wikipedia.org/wiki/Stdarg.h>
+4. <https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html>
+5. <https://www.youtube.com/watch?v=1W4oyuOdXv8>
+6. <https://www.thegeekstuff.com/2017/05/c-variadic-functions/>
 
