@@ -5,109 +5,108 @@ The source codes contained in this directory are to help better understand varia
 # General #
 
 1. What are variadic functions?  
-A variadic function (aka varargs function) is a function that takes an unlimited number of arguments.  
-When **declaring** a variadic function, an ellipsis (i.e., ...) is used as the last parameter to allow the compiler to accept however many arguments.  The following are some of the ways to declare.  
-```C
-int check(int a, double b, ...);
-```
-```C
-void simple_printf(const char* fmt, ...);
-```
-And **defining** a variadic function is similar to declaring.  The following are some of the ways to define.  
-```C
-long fun(char a, double b, int c, ...);
-```
-```C
-long fun(char, double, int, ...);
-```
+A variadic function (aka varargs function) is a function that takes an unlimited number of arguments.  When **declaring** a variadic function, an ellipsis (i.e., ...) is used as the last parameter to allow the compiler to accept however many arguments.  The following are some of the ways to declare.  
+	```C
+	int check(int a, double b, ...);
+	```
+	```C
+	void simple_printf(const char* fmt, ...);
+	```
+	And **defining** a variadic function is similar to declaring.  The following are some of the ways to define.  
+	```C
+	long fun(char a, double b, int c, ...);
+	```
+	```C
+	long fun(char, double, int, ...);
+	```
 
 2. How to use va\_start, va\_arg and va\_end macros?  
 The standard arguments header in the standard library contains pre-defined macros.  These macros are usually used to support variadic functions.  The macros listed below are va\_list type used to retrieve additional arguments that's in a function.  
 
 				   | Macros   | Uses                                      |
-				   | :------- | :---------------------------------------- |
+				   | -------- | ----------------------------------------- |
 				   | va_start | starts iterating arguments                |
 				   | va_end   | ends the iteration                        |
 				   | va_arg   | retrieves an argument                     |
 				   | va_copy  | copies contents of one va_list to another |
   
-An example of their uses is shown below:
+	An example of their uses is shown below:
 
-```C
-#include <stdio.h>
-#include <stdarg.h>
+	```C
+	#include <stdio.h>
+	#include <stdarg.h>
 
-/* define a function */
-double average (int a, ...)
-{
-	/* declare a va_list type variable */
-	va_list arglist;
-	/* declare variables */
-	double sum = 0;
-	int i = 0;
-	/* use int parameter and va_start to initialize the va_list variable */
-	va_start (arglist, a); 
-	/* iterate all arguments assigned to arglist */ 
-	for (; i < a; i++)
+	/* define a function */
+	double average (int a, ...)
 	{
-		sum += va_arg (arglist, int);
+		/* declare a va_list type variable */
+		va_list arglist;
+		/* declare variables */
+		double sum = 0;
+		int i = 0;
+		/* use int parameter and va_start to initialize the va_list variable */
+		va_start (arglist, a); 
+		/* iterate all arguments assigned to arglist */ 
+		for (; i < a; i++)
+		{
+			sum += va_arg (arglist, int);
+		}
+		/* clean memory reserved for arglist */
+		va_end (arglist);
+		/* returns the average */
+		return (sum / a);
 	}
-	/* clean memory reserved for arglist */
-	va_end (arglist);
-	/* returns the average */
-	return (sum / a);
-}
-/* function that prints the average */
-int main(void)
-{
-	printf("%d\n", average (3, 4, 5, 6));
-}
-```
+	/* function that prints the average */
+	int main(void)
+	{
+		printf("%d\n", average (3, 4, 5, 6));
+	}
+	```
 
 3. Why and how to use the const type qualifier?
 A const type qualifer is a keyword initializing a static value.  The const is part of the type, not the variable.  It can be used in multiple ways like so:
 
-**Simple use** is to lock in a variable's value.
-```C
-int main(void)
-{
-	const int i = 3;
-	return (0);
-}
-```
+	**Simple use** is to lock in a variable's value.
+	```C
+	int main(void)
+	{
+		const int i = 3;
+		return (0);
+	}
+	```
 
-**Pointer to constant** will take the memory address of the variable it points to which will not change.  
+	**Pointer to constant** will take the memory address of the variable it points to which will not change.  
 
-```C
-int main(void)
-{
-	int i = 3, j = 4;
-	const int *ptr = &i; /* can also be int const *ptr = &i */
-	return (0);
-}
-```
+	```C
+	int main(void)
+	{
+		int i = 3, j = 4;
+		const int *ptr = &i; /* can also be int const *ptr = &i */
+		return (0);
+	}
+	```
 
-**Constant pointer** is to set the pointer so that it can't point to other variables.
+	**Constant pointer** is to set the pointer so that it can't point to other variables.
 
-```C
-int main(void)
-{
-	int i = 3, j = 4;
-	int *const ptr = &i;
-	return (0);
-}
-```
+	```C
+	int main(void)
+	{
+		int i = 3, j = 4;
+		int *const ptr = &i;
+		return (0);
+	}
+	```
 
-**Constant pointer to constant** is to lock in the variable's value and set the pointer so that it can't point to other variables.
+	**Constant pointer to constant** is to lock in the variable's value and set the pointer so that it can't point to other variables.
 
-```C
-int main(void)
-{
-	int i = 3, j = 4;
-	const int *const ptr = &i;
-	return (0);
-}
-```
+	```C
+	int main(void)
+	{
+		int i = 3, j = 4;
+		const int *const ptr = &i;
+		return (0);
+	}
+	```
 
 # Tasks #
 
