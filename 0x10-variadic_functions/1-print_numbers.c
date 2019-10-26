@@ -11,19 +11,24 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	/* declare iteration variable */
-	unsigned int i;
 	/* declare a va_list type variable */
 	va_list argList;
+	/* declare iteration variable */
+	unsigned int i;
 	/* use int parameter and va_start to initialize the va_list variable */
 	va_start(argList, n);
+	/* if int parameter is 0 or NULL, return nothing */
+	if (n == 0)
+	{
+		return;
+	}
 	/**
 	 * iterate all arguments
 	 * print number and then, print separator
 	 * if separator is not NULL, print
 	 */
 	for (i = 0; i < n; i++)
-	{		
+	{
 		printf("%d", va_arg(argList, int));
 		if ((separator != NULL) && (i != (n - 1)))
 		{
