@@ -7,7 +7,6 @@
  */
 size_t print_list(const list_t *h)
 {
-	/* declare pointer to head of list */
 	/* declare iteration variable */
 	int i = 0;
 	/* if pointer is not at NULL */
