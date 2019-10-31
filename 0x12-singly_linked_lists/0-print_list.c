@@ -8,26 +8,25 @@
 size_t print_list(const list_t *h)
 {
 	/* declare pointer to head of list */
-	const list_t *temp = h;
 	/* declare iteration variable */
 	int i = 0;
 	/* if pointer is not at NULL */
 	/* then, iterate through list */
-	while (temp)
+	while (h)
 	{
 		/* if pointer is at NULL */
 		/* then, print nil */
-		if (temp->str == NULL)
+		if (h->str == NULL)
 		{
 			printf("[0] (nil)");
 		}
 		else
 		{
 			/* print after iteration */
-			printf("[%u] %s", temp->len, temp->str);
+			printf("[%u] %s", h->len, h->str);
 		}
 		/* move pointer */
-		temp = temp->next;
+		h = h->next;
 		/* print new line after printing the elements */
 		printf("\n");
 		/* iterate through list */
