@@ -26,13 +26,11 @@ unsigned int _strlen(const char *s)
 list_t *add_node(list_t **head, const char *str)
 {
 	/* declare variables for new elements */
-	char *new_str;
-	unsigned int new_len;
+	/* initial new str to duplicate */
+	/* initialize new len to find length of duplicate */
+	char *new_str = strdup(str);
+	unsigned int new_len = _strlen(str);
 	list_t *new_node;
-	/* duplicate string */
-	new_str = strdup(str);
-	/* find length of new string */
-	new_len = _strlen(new_str);
 	/* allocate memory for new node */
 	new_node = malloc(sizeof(list_t));
 	/* return NULL if malloc fails */
