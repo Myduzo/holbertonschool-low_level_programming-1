@@ -46,6 +46,6 @@ list_t *add_node(list_t **head, const char *str)
 	new_node->next = *head;
 	/* move head to point to new node */
 	*head = new_node;
-	/* return address to new node */
+	/* return address to the head */
 	return (*head);
 }
