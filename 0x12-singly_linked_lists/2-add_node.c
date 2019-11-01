@@ -25,9 +25,11 @@ unsigned int _strlen(const char *s)
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	/* declare variables for new elements */
-	/* initial new str to duplicate */
-	/* initialize new len to find length of duplicate */
+	/**
+	 * declare variables for new elements
+	 * initialize new str to duplicate
+	 * initialize new len to find length of duplicate
+	 */
 	char *new_str = strdup(str);
 	unsigned int new_len = _strlen(str);
 	list_t *new_node;
