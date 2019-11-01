@@ -7,13 +7,15 @@
  */
 void free_list(list_t *head)
 {
-	/* declare variable and initialize it at NULL */
-	list_t *temp = NULL;
-
-	while ((temp = head) != NULL)
+	/**
+	 * iterate through the linked link till NULL
+	 * free strings along the way
+	 * then, free the head
+	 */
+	while (head != NULL)
 	{
 		head = head->next;
-		free(temp->str);
-		free(temp);
+		free(head->str);
+		free(head);
 	}
 }
