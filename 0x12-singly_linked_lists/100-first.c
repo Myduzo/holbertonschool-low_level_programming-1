@@ -1,7 +1,12 @@
 #include "lists.h"
 
-/* apply constructor attribute so it executes before int main(void) */
-void __attribute__ ((constructor)) premain()
+/**
+ * startup - function executes before int main(void)
+ * @void: void
+ * Description: apply __attribute__ ((constructor)) in the header file
+ */
+void startup(void)
 {
-	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
