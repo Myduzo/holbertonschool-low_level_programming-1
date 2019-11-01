@@ -25,16 +25,16 @@ unsigned int _strlen(const char *s)
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	/* declare variables for new elements */
-	char *new_str;
-	unsigned int new_len;
+	/**
+	 * declare variables for new elements
+	 * initialize new_str to duplicate str
+	 * initialize new_len to find length of duplicate str
+	 */
+	char *new_str = strdup(str);
+	unsigned int new_len = _strlen(str);
 	list_t *new_node;
-	/* declare variable to have last node be head if NULL */
+	/* declare variable to iterate to last node */
 	list_t *last = *head;
-	/* duplicate string */
-	new_str = strdup(str);
-	/* find length of new string */
-	new_len = _strlen(new_str);
 	/* allocate memory for new node */
 	new_node = malloc(sizeof(list_t));
 	/* return NULL if malloc fails */
@@ -50,7 +50,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		return (new_node);
+		return (*head);
 	}
 	/* iterate to the last node of the current list */
 	while (last->next != NULL)
