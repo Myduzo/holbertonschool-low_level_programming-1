@@ -7,30 +7,18 @@
  */
 size_t print_listint(const listint_t *h)
 {
-  /* declare iteration variable */
-  int i = 0;
-  /* if pointer is not at NULL */
-  /* then, iterate through list */
-  while (h)
+	/* declare iteration variable */
+	int iterate = 0;
+	/* if there's a head */
+	while (h)
     {
-      /* if pointer is at NULL */
-      /* then, print nil */
-      if (!(h->n))
-	{
-	  printf("(nil)");
+		/* then, print the element */
+		printf("%d\n", h->n);
+		/* move to the next node */
+		h = h->next;
+		/* iterate through list */
+		iterate++;
 	}
-      else
-	{
-	  /* print after iteration */
-	  printf("%d", h->n);
-	}
-      /* move pointer */
-      h = h->next;
-      /* print new line after printing the elements */
-      printf("\n");
-      /* iterate through list */
-      i++;
-    }
-  /* return the number of nodes */
-  return (i);
+	/* return the number of nodes */
+	return (iterate);
 }
