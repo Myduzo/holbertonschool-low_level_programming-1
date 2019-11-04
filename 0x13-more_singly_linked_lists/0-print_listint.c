@@ -11,7 +11,7 @@ size_t print_listint(const listint_t *h)
 	int iterate = 0;
 	/* if there's a head */
 	while (h)
-    {
+	{
 		/* then, print the element */
 		printf("%d\n", h->n);
 		/* move to the next node */
