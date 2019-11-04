@@ -4,6 +4,7 @@ The source codes contained in this directory are to help better understand singl
 # General #
 1. How to use linked lists?  
 A linked list is a linear data structure containing two key components that makes kup a node: data and pointer.  The data could contain multiple elements but there's only one pointer to the next node.  The first node is always the head and the end of a linked list is always NULL.  
+
     A linked list is quite flexible, in that we could easily manipulate it.  We could insert a new node, delete existing node, find the length of a linked list, search for a sepcific element in a node, find a specific node, detect a loop inside a linked list and many more.  
 
 ![linkedlist](https://i.imgur.com/tgtocqP.png)
