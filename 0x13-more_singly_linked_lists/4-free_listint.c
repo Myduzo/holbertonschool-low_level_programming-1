@@ -7,7 +7,7 @@
  */
 void free_listint(listint_t *head)
 {
-	/* declare variable to dereference head */
+	/* declare variable to hold dereferenced head */
 	listint_t *next;
 	/**
 	* iterate through the linked link till NULL
