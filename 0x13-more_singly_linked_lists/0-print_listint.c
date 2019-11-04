@@ -8,7 +8,7 @@
 size_t print_listint(const listint_t *h)
 {
   /* declare iteration variable */
-  unsigned int i = 0;
+  int i = 0;
   /* if pointer is not at NULL */
   /* then, iterate through list */
   while (h)
@@ -22,7 +22,7 @@ size_t print_listint(const listint_t *h)
       else
 	{
 	  /* print after iteration */
-	  printf("%u", h->n);
+	  printf("%d", h->n);
 	}
       /* move pointer */
       h = h->next;
