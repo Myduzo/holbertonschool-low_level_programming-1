@@ -8,16 +8,15 @@
 size_t listint_len(const listint_t *h)
 {
   /* declare iteration variable */
-  int i = 0;
-  /* if pointer is not at NULL */
-  /* then, iterate through list */
+  int iterate = 0;
+  /* if there's a head */
   while (h)
     {
-      /* move pointer */
+      /* move to the next node */
       h = h->next;
       /* iterate through list */
-      i++;
+      iterate++;
     }
   /* return the number of nodes */
-  return (i);
+  return (iterate);
 }
