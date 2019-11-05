@@ -26,8 +26,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	/* point to the node before the node to be deleted */
 	while (temp != NULL && iterate < index - 1)
-		iterate++;
 		temp = temp->next;
+		iterate++;
 	/* if given index is more than the number of nodes */
 	/* then, return -1 */
 	if (temp == NULL || temp->next == NULL)
