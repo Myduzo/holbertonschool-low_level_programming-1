@@ -7,19 +7,18 @@
  */
 void free_listint2(listint_t **head)
 {
-	/* declare variable to move pointer and store it */
-	listint_t *pointer;
+	/* declare and initialize variable as head */
+	listint_t *pointer = *head;
+	/* declare variable to point to the next node */
 	listint_t *temp;
 	/**
-	 * 1. if head is not NULL, then set pointer to head
-	 * 2. iterate till NULL
-	 * 3. move pointer to next node
-	 * 4. free each node
-	 * 5. set pointer to temp which would be at NULL
+	 * 1. if head there is a head, then, iterate till NULL
+	 * 2. moving pointer to the next node
+	 * 3. freeing each node as it iterates
+	 * 4. set pointer to temp which would be at NULL
 	 */
-	if (*head != NULL)
+	if (*head)
 	{
-		pointer = *head;
 		while (pointer != NULL)
 		{
 			temp = pointer->next;
