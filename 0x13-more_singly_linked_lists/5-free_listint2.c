@@ -7,10 +7,10 @@
  */
 void free_listint2(listint_t **head)
 {
-	/* declare variable to temporarily hold current pointer */
+	/* declare variable to hold head */
 	listint_t *temp = *head;
-	/* declare variable to hold dereferenced head */
-	listint_t *next;
+	/* declare variable to hold pointer before freeing */
+	listint_t *hold;
 	/* if head is empty, return nothing */
 	if (*head == NULL)
 	{
@@ -19,14 +19,16 @@ void free_listint2(listint_t **head)
 	/**
 	* iterate through the linked link till NULL
 	* freeing nodes as it iterates
-	* do not need to free integer type
+	* hold the pointer before it frees
+	* assign the pointer to head
+	* (do not need to free integer type)
 	*/
 	while (temp != NULL)
 	{
-		next = temp->next;
+		hold = temp->next;
 		free(temp);
-		temp = next;
+		temp = hold;
 	}
-	/* set dereferenced head to NULL */
+	/* set head to NULL */
 	*head = NULL;
 }
