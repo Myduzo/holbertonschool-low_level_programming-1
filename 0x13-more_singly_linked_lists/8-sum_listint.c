@@ -3,7 +3,7 @@
 /**
  * sum_listint - function that returns the sum of all the data in a linked list
  * @head: pointer to head of list
- * Return: if successful, returns sum or if fail, returns NULL
+ * Return: if successful, returns sum or if fail, returns 0
  */
 int sum_listint(listint_t *head)
 {
@@ -23,6 +23,6 @@ int sum_listint(listint_t *head)
 		/* return the sum */
 		return (sum);
 	}
-	/* if empty, return NULL */
+	/* if empty, return 0 */
 	return (0);
 }
