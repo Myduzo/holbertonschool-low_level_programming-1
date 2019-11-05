@@ -17,7 +17,7 @@ void free_listint2(listint_t **head)
 	 * 3. freeing each node as it iterates
 	 * 4. set pointer to temp which would be at NULL
 	 */
-	if (*head)
+	if (head)
 	{
 		while (pointer != NULL)
 		{
