@@ -12,11 +12,13 @@ void free_listint2(listint_t **head)
 	/* declare variable to point to the next node */
 	listint_t *temp;
 	/**
-	 * 1. if head there is a head, then, iterate till NULL
-	 * 2. moving pointer to the next node
-	 * 3. freeing each node as it iterates
-	 * 4. set pointer to temp which would be at NULL
-	 * 5. set head to NULL
+	 * 1. if the value in the head is not NULL, 
+	 * 2. then, set pointer to head
+	 * 3. iterate till NULL
+	 * 4. moving pointer to the next node
+	 * 5. freeing each node as it iterates
+	 * 6. set pointer to temp which would be at NULL
+	 * 7. set head to NULL
 	 */
 	if (head)
 	{
