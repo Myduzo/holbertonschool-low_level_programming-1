@@ -13,7 +13,7 @@ void print_binary(unsigned long int n)
 	/* declare variable to store binary */
 	int binary;
 	/* iterate backwards through base 10 (0 to 32) */
-	for (shifts = 32; shifts >= 0; shifts--)
+	for (shifts = 0; shifts <= 32; shifts++)
 	{
 		/* n will right shift by the number of shifts */
 		binary = n >> shifts;
