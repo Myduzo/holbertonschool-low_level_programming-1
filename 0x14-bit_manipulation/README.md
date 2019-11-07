@@ -16,7 +16,7 @@ Bitwise operators are used to manipulate individual bits.  A single byte holds e
 | Operator | Description                                                                                                                   | Syntax (A holds 60 & B holds 13) | Result   |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | -------- |
 | &        | Binary and Operator copies a bit to result if it exists in both operands                                                      | (A & B) = 12                     | 00001100 |
-| |        | Binary or Operator copies a bit if it exists in either operand                                                                | (A | B) = 16                     | 00111101 |
+| \|       | Binary or Operator copies a bit if it exists in either operand                                                                | (A \| B) = 16                     | 00111101 |
 | ^        | Binary XOR Operator copies the bit if it is set in one operand but not both                                                   | (A ^ B) = 49                     | 00110001 |
 | ~        | Binary One's Complement Operator is unary and has the effect of flipping bits                                                 | (~ A) = ~(60)                    | -0111101 |
 | <<       | Binary Left Shift Operator where the left operands value is moved left by the number of bits specificed by the right operand  | A << 2 = 240                     | 11110000 |
@@ -26,8 +26,8 @@ Bitwise operators are used to manipulate individual bits.  A single byte holds e
 In bit manipulation, any integer or character are represented in binary form (base 2).  It's also helpful to understand its equivalent ASCII representation.  The following table shows the values at number bases.  
 
 | Base 2 | Base 8 | Base 10 | Base 16     |
-| Binary | Octal  | Decimal | Hexadecimal | 
 | ------ | ------ | ------- | ----------- |
+| Binary | Octal  | Decimal | Hexadecimal |
 | 0000   | 000    | 0       | 0           |
 | 0001   | 001    | 1       | 1           |
 | 0010   | 002    | 2       | 2           |
