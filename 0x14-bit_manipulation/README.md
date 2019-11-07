@@ -9,7 +9,7 @@ See Resources below.
 Bitwise operators are used to manipulate individual bits.  A single byte holds eight bits.  Hence, bitwise operations work on a smaller scale where it impacts bit patterns or binary representations.  Since bitwise operations are closer to the operating system, it works quicker when compressing and encrypting data.  
 
     The following table shows the bitwise operators and their binary representation.  
-![bitwise](https://i.imgur.com/uMiDcB5.png)
+![bitwiseops](https://i.imgur.com/uMiDcB5.png)
 
     The following table shows the bitwise operators and their uses.  
 
@@ -25,26 +25,26 @@ Bitwise operators are used to manipulate individual bits.  A single byte holds e
 3. Base 2? Base 8? Base 10? Base 16?  
 In bit manipulation, any integer or character are represented in binary form (base 2).  It's also helpful to understand its equivalent ASCII representation.  The following table shows the values at number bases.  
 
-| Base 2 | Base 8 | Base 10 | Base 16     |
-| ------ | ------ | ------- | ----------- |
-| Binary | Octal  | Decimal | Hexadecimal |
-| 0000   | 000    | 0       | 0           |
-| 0001   | 001    | 1       | 1           |
-| 0010   | 002    | 2       | 2           |
-| 0011   | 003    | 3       | 3           |
-| 0100   | 004    | 4       | 4           |
-| 0101   | 005    | 5       | 5           |
-| 0110   | 006    | 6       | 6           |
-| 0111   | 007    | 7       | 7           |
-| 1000   | 010    | 8       | 8           |
-| 1001   | 011    | 9       | 9           |   
-| 1010   | 012    | 10      | A           |
-| 1011   | 013    | 11      | B           |
-| 1100   | 014    | 12      | C           |
-| 1101   | 015    | 13      | D           |
-| 1110   | 016    | 14      | E           |
-| 1111   | 017    | 15      | F           |
-| 10000  | 020    | 16      | 10          |
+| Base 2     | Base 8    | Base 10     | Base 16         |
+| ---------- | --------- | ----------- | --------------- |
+| **Binary** | **Octal** | **Decimal** | **Hexadecimal** |
+| 0000       | 000       | 0           | 0               |
+| 0001       | 001       | 1           | 1               |
+| 0010       | 002       | 2           | 2               |
+| 0011       | 003       | 3           | 3               |
+| 0100       | 004       | 4           | 4               |
+| 0101       | 005       | 5           | 5               |
+| 0110       | 006       | 6           | 6               |
+| 0111       | 007       | 7           | 7               |
+| 1000       | 010       | 8           | 8               |
+| 1001       | 011       | 9           | 9               |   
+| 1010       | 012       | 10          | A               |
+| 1011       | 013       | 11          | B               |
+| 1100       | 014       | 12          | C               |
+| 1101       | 015       | 13          | D               |
+| 1110       | 016       | 14          | E               |
+| 1111       | 017       | 15          | F               |
+| 10000      | 020       | 16          | 10              |
 
 # Quiz #
 0. What is 0x89 in base 10?  137  
