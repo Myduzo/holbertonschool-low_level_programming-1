@@ -13,6 +13,11 @@ unsigned int binary_to_uint(const char *b)
 {
 	/* declare variable to store int */
 	int num = 0;
+	/* if b is NULL, return 0 */
+	if (b == NULL)
+	{
+		return (0);
+	}
 	/* iterate from right to left till null byte */
 	for (; *b != '\0'; b++)
 	{
