@@ -21,7 +21,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	 * 1. left shift by index
 	 * 2. take the value of n
 	 * 3. compare it using AND operator
-	 * 4. flip the binary digits using COMPLEMENT operator
+	 * 4. invert the binary digits using COMPLEMENT operator
 	 * 5. compare each binary digit to 1
 	 * 6. if true, return 1
 	 * 7. if false, return 0
