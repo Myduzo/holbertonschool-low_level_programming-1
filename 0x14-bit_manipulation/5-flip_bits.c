@@ -11,14 +11,14 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	/* declare variable to store the number of bits flipped */
-	unsigned int iterate = 0;
+	unsigned long int iterate = 0;
 	/**
 	 * 1. declare variable to perform the EXCLUSIVE-OR operation
 	 * 2. if either bits are 1, returns 1
 	 * 3. if both bits are 0 or 1, returns 0
 	 * 4. essentially, this is a new binary
 	 */
-	unsigned int new_bin = n ^ m;
+	unsigned long int new_bin = n ^ m;
 	/**
 	 * 1. iterate through the new binary
 	 * 2. compare the new binary using AND operator
