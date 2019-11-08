@@ -11,17 +11,17 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int bit;
-
-	bit = ((n >> index) & 1);
-	if (bit)
+	/* if index is longer than an long int */
+	/* then, return -1 */
+	if (index > 64)
 	{
-		bit = bit & 1;
-		return (1);
+		return (-1);
 	}
-	else if (bit == 0)
+	/* if not, right shift n by index */
+	/* return the value of bit */
+	else
 	{
-		return (0);
+		n = (n >> index);
+		return (n & 1);
 	}
-	return (-1);
 }
