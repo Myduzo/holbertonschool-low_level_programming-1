@@ -8,10 +8,10 @@ See Resources below.
 1. How to create, open, close, read and write files?  
 A file is a container that preserves data.  There are two types of files: text and binary.  In C programming, there are file management functions performed on either text or binary files.  These functions could be categorized into:  
 
-    0. Creating a new file  
-    1. Opening an existing file  
-    2. Closing a file  
-    3. Reading from and writing information to a file  
+    1. Creating a new file  
+    2. Opening an existing file  
+    3. Closing a file  
+    4. Reading from and writing information to a file  
 
 The following are the file management functions:  
 
@@ -38,7 +38,7 @@ A file descriptor (FD or fildes) is used to access a file or other input/output 
 On Unix, the first three standard file descriptors are for input/output streams.  They are summarized in the table below along with their purpose and Portable Operating System Interface (POSIX) names.
 
 | File descriptor | Name            | <unistd>       | <stdio.h>  | Purpose                       | 
-| --------------- | --------------- | -------------  | ---------- | ----------------------------- |
+| --------------- | --------------- | -------------- | ---------- | ----------------------------- |
 | 0               | Standard input  | STDIN\_FILENO  | stdin      | Keyboard input                |
 | 1               | Standard output | STDOUT\_FILENO | stdout     | Output on screen              |
 | 2               | Standard error  | STDERR\_FILENO | stderr     | Output on screen due to error |
@@ -80,13 +80,13 @@ O\_RDWR
 0\_WRONLY | O\_CREAT | O\_APPEND  
 
 6. Is open a function or a system call?  
-It's a function, a system call and it's a function provided by the kernel
+It's a function, a system call and it's a function provided by the kernel.  
 
 7. What system call would you use to write to a file descriptor?   
 write  
 
 8. Without context, on Ubuntu 14.04 LTS, write is a …?  
-It's a executable and system call  
+It's a executable and system call.  
 
 9. What is the return value of the system call open if it fails?  
 -1  
