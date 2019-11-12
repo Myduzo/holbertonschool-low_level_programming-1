@@ -6,30 +6,17 @@ The program codes contained in this directory are to help better understand File
 See Resources below.  
 
 1. How to create, open, close, read and write files?  
-A file is a container that preserves data.  There are two types of files: text and binary.  In C programming, there are file management functions performed on either text or binary files.  These functions could be categorized into:  
+A file is a container that preserves data.  There are two types of files: text and binary.  In C programming, there are system calls that could create, open, close, read and write files.  
 
-    1. Creating a new file  
-    2. Opening an existing file  
-    3. Closing a file  
-    4. Reading from and writing information to a file  
+The table below shows the systems calls and how to use them:  
 
-The following are the file management functions:  
-
-| Function | Purpose                                               | Syntax                                                 |
-| -------- | ----------------------------------------------------- | ------------------------------------------------------ |
-| open     | Opening a file                                        | int open{const char \*path, int oflag, ...)            |
-| creat    | Creating a file                                       | int creat(const char \*path, mode\_t mode)             |
-| fopen    | Creating a file or opening an existing file           | FILE \*fopen(const char \*filename, const char \*mode) |
-| fclose   | Closing a file                                        | int fclose(FILE \*stream)                              |
-| fprintf  | Writing a block of data to file                       | int fprint(FILE \*stream, const char \*format, ...)    |
-| fscanf   | Reading a block data from a file                      | int fscanf(FILE \*stream, const char \*format, ...)    |
-| getc     | Reading a single character from a file                | int getc(FILE \*stream)                                |
-| putc     | Writing a single character to a file                  | int putc(int c, FILE \*stream)                         |
-| getw     | Reading an integer from a file                        | int getw(FILE \*stream)                                |
-| putw     | Writing an integer to a file                          | int putw(int w, FILE \*stream);                        |
-| fseek    | Sets position of file pointer to a specified location | int fseek(FILE \*stream, long offset, int whence)      |
-| ftell    | Returns current position of a file pointer            | long ftell(FILE \*stream)                              |
-| rewind   | Sets file pointer at the beginning of a file          | void rewind(FILE \*stream)                             |
+| System Calls | Purpose                       | Syntax                                                   |
+| ------------ | ----------------------------- | -------------------------------------------------------- |
+| open         | Opening (and creating) a file | int open{const char \*path, int oflag, ...);             |
+| create       | Creating a file               | int creat(const char \*path, mode\_t mode);              |
+| close        | Close a file descriptor       | int close(int fd);                                       |
+| read         | Read a file descriptor        | ssize\_t read(int fd, void \*buf, size\_t count);        |
+| write        | Write to a file descriptor    | ssize\_t write(int fd, const void \*buf, size\_t count); |
 
 2. What are file descriptors?  
 A file descriptor (FD or fildes) is used to access a file or other input/output resource.  It's a number that identifies an open file in the operating system.  There's at least one file descriptor for every open file.  The number is an unsigned int.  
@@ -37,7 +24,7 @@ A file descriptor (FD or fildes) is used to access a file or other input/output 
 3. What are the 3 standard file descriptors, what are their purpose and what are their POSIX names?  
 On Unix, the first three standard file descriptors are for input/output streams.  They are summarized in the table below along with their purpose and Portable Operating System Interface (POSIX) names.
 
-| File descriptor | Name            | <unistd>       | <stdio.h>  | Purpose                       | 
+| File Descriptor | Name            | <unistd>       | <stdio.h>  | Purpose                       | 
 | --------------- | --------------- | -------------- | ---------- | ----------------------------- |
 | 0               | Standard input  | STDIN\_FILENO  | stdin      | Keyboard input                |
 | 1               | Standard output | STDOUT\_FILENO | stdout     | Output on screen              |
