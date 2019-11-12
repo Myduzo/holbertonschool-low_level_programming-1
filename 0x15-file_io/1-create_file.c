@@ -1,6 +1,24 @@
 #include "holberton.h"
 
 /**
+ * _strlen - function that returns the length of a string
+ * @s: characters
+ * Description: Look up man strlen for reference
+ * Return: length
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+	int count;
+
+	for (count = 0; s[count] != '\0'; count++)
+	{
+		len++;
+	}
+	return (len);
+}
+
+/**
  * create_file - function that creates a file
  * @filename: name of file to create
  * @text_content: NULL terminated string to write to file
@@ -22,7 +40,8 @@ int create_file(const char *filename, char *text_content)
 	/* per requirement, if text_content is NULL, then, create empty file */
 	if (text_content == NULL)
 	{
-		newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
+		newfile = open(filename, O_WRONLY);
+		exit(1);
 		return (1);
 	}
 	/**
@@ -32,16 +51,13 @@ int create_file(const char *filename, char *text_content)
 	 * 4. if file is created, write text_content to it
 	 * 5. close file and return 1
 	 */
-	else
+	newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (newfile == -1)
 	{
-		newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
-		if (newfile == -1)
-		{
-			exit(1);
-			return (-1);
-		}
-		write(newfile, text_content, 5000);
-		close(newfile);
-		return (1);
+		exit(1);
+		return (-1);
 	}
+	write(newfile, text_content, _strlen(text_content));
+	close(newfile);
+	return (1);
 }
