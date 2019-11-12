@@ -12,26 +12,36 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file;
-
+	/* declare variable for new file */
+	int newfile;
+	/* per requirement, if filename is NULL, then, return -1 */
 	if (filename == NULL)
 	{
 		return (-1);
 	}
+	/* per requirement, if text_content is NULL, then, create empty file */
 	if (text_content == NULL)
 	{
-		file = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
+		newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
 		return (1);
 	}
+	/**
+	 * 1. create file that truncates if it exists already
+	 * 2. and gives rw permission to user only
+	 * 3. per requirement, if file failed to create, write, etc., then, return -1
+	 * 4. if file is created, write text_content to it
+	 * 5. close file and return 1
+	 */
 	else
 	{
-		file = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
-		if (file)
+		newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
+		if (newfile == -1)
 		{
-			write(STDIN_FILENO, text_content, 2000);
-			close(file);
-			return (1);
+			exit(1);
+			return (-1);
 		}
-		return (-1);
+		write(newfile, text_content, 5000);
+		close(newfile);
+		return (1);
 	}
 }
