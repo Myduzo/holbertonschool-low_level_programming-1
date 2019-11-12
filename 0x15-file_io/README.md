@@ -111,9 +111,20 @@ The text will be printed on the terminal on the standard output.
 True  
 
 # Tasks #
+0. Tread lightly, she is near  
+Write a function that reads a text file and prints it to the POSIX standard output.  
+Prototype: ssize\_t read\_textfile(const char \*filename, size\_t letters);  
 
+1. Under the snow  
+Create a function that creates a file.  
+Prototype: int create\_file(const char \*filename, char \*text\_content);  
 
+2. Speak gently, she can hear   
+Write a function that appends text at the end of a file.  
+Prototype: int append\_text\_to\_file(const char \*filename, char \*text\_content);  
 
+3. cp  
+Write a program that copies the content of a file to another file.  
 
 
 # Resources #
