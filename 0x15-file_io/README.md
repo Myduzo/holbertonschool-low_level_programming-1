@@ -24,7 +24,7 @@ A file descriptor (FD or fildes) is used to access a file or other input/output 
 3. What are the 3 standard file descriptors, what are their purpose and what are their POSIX names?  
 On Unix, the first three standard file descriptors are for input/output streams.  They are summarized in the table below along with their purpose and Portable Operating System Interface (POSIX) names.
 
-| File Descriptor | Name            | <unistd>       | <stdio.h>  | Purpose                       | 
+| File Descriptor | Name            | unistd         | stdio.h    | Purpose                       | 
 | --------------- | --------------- | -------------- | ---------- | ----------------------------- |
 | 0               | Standard input  | STDIN\_FILENO  | stdin      | Keyboard input                |
 | 1               | Standard output | STDOUT\_FILENO | stdout     | Output on screen              |
