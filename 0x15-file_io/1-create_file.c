@@ -35,13 +35,13 @@ int create_file(const char *filename, char *text_content)
 	/* declare variables to check if close and/or write fails */
 	int check_c, check_w;
 	/* requirement: if filename is NULL, return -1 */
-	/* requirement: if text_content is NULL, create and return empty file */
+	/* requirement: if text_content is NULL, create empty file */
 	if (filename == NULL)
 		return (-1);
 	if (text_content == NULL)
 		return (1);
 	/* create new file and if it fails, return -1 */
-	newfile = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+	newfile = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (newfile == -1)
 		return (-1);
 	/* write into new file and if it fails, return -1 */
