@@ -32,24 +32,28 @@ int _strlen(char *s)
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
+	/* declare variable for file descriptor */
 	int fd;
-
+	/* declare variables to check if close and/or write fails */
+	int check_c, check_w;
+	/* requirement: if filename is NULL, return -1 */
 	if (filename == NULL)
-	{
 		return (-1);
-	}
-	if (text_content == NULL)
-	{
-		fd = open(filename, O_RDONLY);
-		return (1);
-	}
-	fd = open(filename, O_RDWR | O_APPEND, S_IRGRP | S_IWGRP | S_IROTH);
+	/* open file and if it fails, return -1 */
+	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
-	{
-		exit(1);
 		return (-1);
-	}
-	write(fd, text_content, _strlen(text_content));
-	close(fd);
+	/* requirement: if text_content is NULL, create and return empty file */
+	if (text_content == NULL)
+		return (1);
+	/* write string to file and if it fails, return -1 */
+	check_w = write(fd, text_content, _strlen(text_content));
+	if (check_w == -1 || check_w != _strlen(text_content))
+		return (-1);
+	/* close file and if it fails, return -1) */
+	check_c = close(fd);
+	if (check_c == -1)
+		return (-1);
+	/* return 1 if successful */
 	return (1);
 }
