@@ -6,22 +6,24 @@
  * @filename: text file
  * @letters: number of letters it should read and print
  * Description: 0. Tread lightly, she is near
- * Return: Always 0
+ * Return: see below
+ * 1. if successful, actual number of letters
+ * 2. if fail because file can't be opened or read, 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	/* declare variable for buffer, file descriptor & size of text file */
 	char *buf;
-	int fd, size;
+	ssize_t fd, size;
 	/* per requirement, if filename is NULL, return 0 */
 	if (filename == NULL)
 		return (0);
 	/* allocate memory for buffer */
-	buf = malloc(sizeof(size_t) * letters);
+	buf = malloc(sizeof(ssize_t) * (letters));
 	if (buf == NULL)
 		return (0);
 	/* open text file but if it's empty, exit and return 0 */
-	fd = open(filename, O_RDWR, S_IRUSR | S_IWUSR);
+	fd = open(filename, O_RDWR);
 	if (fd < 0)
 	{
 		exit(1);
@@ -35,6 +37,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	write(STDOUT_FILENO, buf, letters);
 	/* close file */
 	close(fd);
-	/* per requirement, if successful, return 0 */
-	return (0);
+	/* per requirement, if successful, return letters */
+	return (letters);
 }
