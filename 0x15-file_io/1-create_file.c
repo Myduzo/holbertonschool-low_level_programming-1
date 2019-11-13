@@ -32,32 +32,23 @@ int create_file(const char *filename, char *text_content)
 {
 	/* declare variable for new file */
 	int newfile;
-	/* per requirement, if filename is NULL, then, return -1 */
+	/* declare variables to check if close and/or write fails */
+	int check_c, check_w;
+	/* requirement: if filename is NULL, return -1 */
 	if (filename == NULL)
-	{
 		return (-1);
-	}
-	/* per requirement, if text_content is NULL, then, create empty file */
-	if (text_content == NULL)
-	{
-		newfile = open(filename, O_WRONLY);
-		exit(1);
-		return (1);
-	}
-	/**
-	 * 1. create file that truncates if it exists already
-	 * 2. and gives rw permission to user only
-	 * 3. per requirement, if file failed to create, write, etc., then, return -1
-	 * 4. if file is created, write text_content to it
-	 * 5. close file and return 1
-	 */
+	/* create new file and if it fails, return -1 */
 	newfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (newfile == -1)
-	{
-		exit(1);
 		return (-1);
-	}
-	write(newfile, text_content, _strlen(text_content));
-	close(newfile);
+	/* write into new file and if it fails, return -1 */
+	check_w = write(newfile, text_content, _strlen(text_content));
+	if (check_w == -1 || check_w != _strlen(text_content))
+		return (-1);
+	/* close new file and if it fails, return -1 */
+	check_c = close(newfile);
+	if (check_c == -1)
+		return (-1);
+	/* return 1 if successful */
 	return (1);
 }
