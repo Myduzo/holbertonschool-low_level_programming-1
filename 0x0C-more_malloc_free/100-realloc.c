@@ -3,8 +3,26 @@
 #include <stdlib.h>
 
 /**
- * *_realloc - function that reallocates memory
- * @ptr: pointer to the memory
+ * *_memcpy - function that copies memory area
+ * @dest: dest letters
+ * @src: src letters
+ * @n: integers
+ * Description: Copies n bytes from memory area src to dest
+ * Return: Pointer to dest
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int iterate;
+
+	for (iterate = 0; iterate < n; iterate++)
+		dest[iterate] = src[iterate];
+	return (dest);
+}
+
+/**
+ * *_realloc - function that deallocates memory pointed to by a pointer
+ * and that pointer points to new memory
+ * @ptr: pointer to the memory of old_size, meaning ptr=malloc(old_size)
  * @old_size: size in bytes
  * @new_size: size in bytes
  * Description: Lookup man realloc for reference
@@ -12,27 +30,14 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	/* declare temporary pointer */
-	void *array;
-	/* "added" memory shouldn't be initialized */
-	if (new_size > old_size)
-	{
-		array = malloc(new_size);
-		free(ptr);
-		return (array);
-	}
-	/* if reallloc fails the original block is untouched */
-	/* it's not freed or moved, just return ptr */
-	if (new_size == old_size)
-	{
-		return (ptr);
-	}
-	/* call is equivalent to malloc(new_size) */
+	/* declare variable pointer to return */
+	void *newptr;
+	/* call is equivalent to malloc(new_size) for values of old_size & new_size */
 	if (ptr == NULL)
 	{
-		array = malloc(new_size);
-		free(array);
-		return (array);
+		newptr = malloc(new_size);
+		free(ptr);
+		return (newptr);
 	}
 	/* call is equivalent to free(ptr) and return NULL */
 	if (new_size == 0 && ptr != NULL)
@@ -40,6 +45,25 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	/* return ptr to newly allocated memory */
-	return (ptr);
+	/* "added" memory shouldn't be initialized */
+	if (new_size > old_size)
+	{
+		newptr = malloc(new_size);
+		return (newptr);
+	}
+	/* if realloc fails the original block is untouched */
+	if (new_size == old_size)
+	{
+		return (ptr);
+	}
+	/* allocate memory for new_size */
+	newptr = malloc(new_size);
+	if (newptr == NULL)
+	{
+		return (NULL);
+	}
+	/* copy memory of ptr to newptr */
+	_memcpy(newptr, ptr, old_size);
+	free(ptr);
+	return (newptr);
 }
