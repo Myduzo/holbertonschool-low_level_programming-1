@@ -36,7 +36,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (ptr == NULL)
 	{
 		newptr = malloc(new_size);
-		free(ptr);
 		return (newptr);
 	}
 	/* call is equivalent to free(ptr) and return NULL */
@@ -49,6 +48,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size > old_size)
 	{
 		newptr = malloc(new_size);
+		free(ptr);
 		return (newptr);
 	}
 	/* if realloc fails the original block is untouched */
