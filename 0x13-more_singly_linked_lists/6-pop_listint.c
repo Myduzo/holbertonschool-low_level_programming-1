@@ -14,8 +14,10 @@ int pop_listint(listint_t **head)
 		return (0);
 	/* if head is the only node in list */
 	/* then, return data of head */
-	if ((*head)->next == NULL)
+	if (pointer->next == NULL)
+	{
 		return (pointer->n);
+	}
 	/**
 	 * 1. if the list is not empty
 	 * 2. assign first node to pointer
@@ -23,6 +25,7 @@ int pop_listint(listint_t **head)
 	 * 4. free the head
 	 * 5. return data of old head
 	 */
-	*head = (*head)->next;
+	*head = pointer->next;
+	free(pointer);
 	return (pointer->n);
 }
