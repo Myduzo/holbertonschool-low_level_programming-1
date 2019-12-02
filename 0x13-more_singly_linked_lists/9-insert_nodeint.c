@@ -4,38 +4,42 @@
  * insert_nodeint_at_index - function that inserts a new node
  * @head: pointer to head of list
  * @idx: index of list where the new node will be added
- * @n: integer type
+ * @n: integer data in node
  * Return: if successful, returns address of new node or if fail, returns NULL
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int iterate = 1;
-	/* allocate memory for new node */
-	listint_t *new_node = malloc(sizeof(listint_t));
+	/* declare variable to iterate to index to insert new node */
+	unsigned int iterate = 0;
+	/* declare variable to temporarily point to head */
+	listint_t *temp = *head;
+	/* declare variable to allocate memory for new node */
+	listint_t *new = malloc(sizeof(listint_t));
 	/* if malloc fails, return NULL */
-	if (new_node == NULL)
+	if (new == NULL)
 	{
 		return (NULL);
 	}
-	new_node->n = n;
-
+	/* if malloc'ed successfully, set new data into new node */
+	new->n = n;
+	/* if index is 1 (head) then, set new node as head */
 	if (idx == 1)
 	{
-		new_node->next = *head;
-		*head = new_node;
-		return (new_node);
+		new->next = temp;
+		*head = new;
+		return (new);
 	}
-
-	while (*head != NULL)
+	/* 1. traverse to the node before index (idx - 1) */
+	/* 2. move temporarily pointer to point to (idx - 1) */
+	for (; iterate < (idx - 1); iterate++)
 	{
-		if (iterate == idx)
-		{
-			new_node->next = (*head)->next;
-			(*head)->next = new_node;
-			return (new_node);
-		}
-		iterate++;
-		*head = (*head)->next;
+		temp = temp->next;
 	}
-	return (NULL);
+	/* have new node point to the same node as (idx - 1) */
+	/* which is the node after index (idx + 1) */
+	new->next = temp->next;
+	/* point (idx - 1) to the new node */
+	temp->next = new;
+	/* return address of new node */
+	return (new);
 }
