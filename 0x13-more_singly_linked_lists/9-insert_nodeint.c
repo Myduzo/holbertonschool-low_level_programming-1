@@ -22,13 +22,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	/* if malloc'ed successfully, set new data into new node */
 	new->n = n;
-	/* if index is NULL, return NULL */
-	if (!idx)
+	/* if list is empty or index is more than the number of nodes, return NULL */
+	if ((!temp) || (!idx))
 	{
 		return (NULL);
 	}
-	/* if index is 1 (head) then, set new node as head */
-	if (idx == 1)
+	/* if index is head then, set new node as head */
+	if (idx == 0)
 	{
 		new->next = temp;
 		*head = new;
@@ -36,9 +36,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	/* traverse to the node before index (idx - 1) */
 	/* move temporarily pointer to point to (idx - 1) */
-	for (; iterate < (idx - 1); iterate++)
+	while (iterate < (idx - 1))
 	{
 		temp = temp->next;
+		iterate++;
 	}
 	/* have new node point to the same node as (idx - 1) */
 	/* which is the node after index (idx + 1) */
