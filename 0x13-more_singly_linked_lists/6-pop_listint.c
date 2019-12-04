@@ -3,7 +3,9 @@
 /**
  * pop_listint - function that deletes the head node
  * @head: pointer to head of list
- * Return: if successful, data of head or if fail, 0
+ * Return: below
+ * 1. upon success, return data of head
+ * 2. upon fail, return 0
  */
 int pop_listint(listint_t **head)
 {
