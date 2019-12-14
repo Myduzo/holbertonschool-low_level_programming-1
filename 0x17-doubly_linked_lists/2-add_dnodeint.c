@@ -26,7 +26,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	 * 1. create the new node
 	 * 2. point to NULL after it
 	 * 3. point to NULL before it
-	 * 4. if there's an empty list, then, set new node as head and return its address
+	 * 4. if there's an empty list, set new node as head and return its address
 	 * 5. point new node to head
 	 * 6. point head to new node
 	 * 7. set new node as head
