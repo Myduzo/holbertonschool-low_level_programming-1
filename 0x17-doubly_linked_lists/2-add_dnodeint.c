@@ -47,12 +47,17 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	 * 5. point head to new node
 	 * 6. set new node as head
 	 * 7. return address of the new element
+	 * 8. all else, return NULL
 	 */
-	new_node->n = n;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->next = *head;
-	new_node->prev = new_node;
-	*head = new_node;
-	return (new_node);
+	if (*head)
+	{
+		new_node->n = n;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		new_node->next = *head;
+		new_node->prev = new_node;
+		*head = new_node;
+		return (new_node);
+	}
+	return (NULL);
 }
