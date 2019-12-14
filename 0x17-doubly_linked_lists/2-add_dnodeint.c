@@ -1,23 +1,6 @@
 #include "lists.h"
 
 /**
- * _strlen - function that returns the length of a string
- * @s: string
- * Return: length
- */
-unsigned int _strlen(const char *s)
-{
-	unsigned int len = 0;
-	unsigned int count;
-
-	for (count = 0; s[count] != '\0'; count++)
-	{
-		len++;
-	}
-	return (len);
-}
-
-/**
  * add_dnodeint - function that adds a new node at the beginning of a DLL
  * @head: pointer to head of DLL
  * @n: element of integer type
