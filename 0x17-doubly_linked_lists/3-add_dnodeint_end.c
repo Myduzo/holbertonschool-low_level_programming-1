@@ -11,16 +11,15 @@ unsigned int _strlen(const char *s)
 	unsigned int count;
 
 	for (count = 0; s[count] != '\0'; count++)
-	{
 		len++;
-	}
 	return (len);
 }
 
 /**
- * add_dnodeint_end - function that adds a new node at the end of a list
- * @head: pointer to head of list
+ * add_dnodeint_end - function that adds a new node at the end of a DLL
+ * @head: pointer to head of DLL
  * @n: element of integer type
+ * Description: 3. Add node at the end
  * Return: see below
  * 1. upon success, address of the new element
  * 2. upon fail, NULL
@@ -31,18 +30,16 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	dlistint_t *new_node;
 	/* declare variable to iterate to last node */
 	dlistint_t *last = *head;
-	/* allocate memory for new node */
-	/* return NULL if malloc fails */
+	/* allocate memory for new node but if malloc fails, return NULL */
 	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
-	{
 		return (NULL);
-	}
-	/* create the new node */
+	/**
+	 * 1. create the new node
+	 * 2. point to NULL after it and point to NULL before it
+	 */
 	new_node->n = n;
-	/* point right to NULL */
 	new_node->next = NULL;
-	/* point left to NULL */
 	new_node->prev = NULL;
 	/**
 	 * 1. if list is empty, then new node is head
@@ -65,9 +62,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	 * 4. return address of the new element
 	 */
 	while (last->next != NULL)
-	{
 		last = last->next;
-	}
 	last->next = new_node;
 	new_node->prev = last;
 	return (new_node);
