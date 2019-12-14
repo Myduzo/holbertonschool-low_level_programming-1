@@ -49,7 +49,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	 * 7. return address of the new element
 	 * 8. all else, return NULL
 	 */
-	if (*head)
+	if (head)
 	{
 		new_node->n = n;
 		new_node->next = NULL;
