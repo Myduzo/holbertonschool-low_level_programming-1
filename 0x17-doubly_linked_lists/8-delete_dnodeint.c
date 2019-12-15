@@ -11,9 +11,7 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	/* declare variable to point to head */
 	dlistint_t *current = *head;
-	/* declare iteration variable */
 	unsigned int iterate = 0;
 	/* if empty DLL, return -1 */
 	if (*head == NULL)
@@ -49,7 +47,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	/* if index is more than number of nodes, then, return -1 */
 	if (current == NULL || current->next == NULL)
 		return (-1);
-	/* point to node after the one to be deleted and before */
 	current->next = current->next->next;
 	free(current->next->prev);
 	current->next->prev = current;
