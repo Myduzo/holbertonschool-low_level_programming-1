@@ -1,5 +1,8 @@
 #include "lists.h"
 
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
+
 /**
  * insert_dnodeint_at_index - function that inserts a new node
  * @h: pointer to head of DLL
@@ -29,18 +32,22 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	/* if DLL is empty or index is more than the number of nodes, return NULL */
 	if ((current == NULL) || (current->next == NULL))
 		return (NULL);
-	/* if index is head then, set new node as head */
+	/* if index is head, then, set new node as head */
 	if (idx == 0)
 	{
-		new_node->next = current;
 		*h = new_node;
 		return (new_node);
 	}
+	/* if index is first node */
+	if (idx == 1)
+		add_dnodeint(&current, n);
+	/* if index is last node */
+	if (current->next == NULL)
+		add_dnodeint_end(&current, n);
 	/**
 	 * 1. traverse to the node before index
 	 * 2. point new node to the node before index
-	 * 3. point to new node
-	 * 4. return address of new node
+	 * 3. point to new node and return address of new node
 	 */
 	while (iterate < (idx - 1))
 	{
