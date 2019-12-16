@@ -5,16 +5,16 @@ The program codes contained in this directory is for learning and developing pro
 0. What is a dynamic library, how does it work, how to create one, and how to use it?  
 A dynamic library is also known as a shared library.  Like a static library, it collects and combines multiple object files to create one executable.  The difference is during linking which is the last step in compilation of a program code.  A static library takes all the object files and copies them permanently into the executable before runtime.  Meanwhile, a dynamic library linking doesn't permanently copy object files into the executable.  It will scan for the object files and link them at runtime.  
 
-When creating a dynamic library, we first need to compile a list of object files and combine them into a shared library file.  We need to be mindful that when the object files are inserted into the shared library, they will take up memory space.  Hence, we need to compile for Position Independent Code (PIC) to generate relative addresses for jump calls and subroutine calls.  Also, a dynamic library is not an archive file, thus we need to compile for a shared library that's not a final program file.  
+    When creating a dynamic library, we first need to compile a list of object files and combine them into a shared library file.  We need to be mindful that when the object files are inserted into the shared library, they will take up memory space.  Hence, we need to compile for Position Independent Code (PIC) to generate relative addresses for jump calls and subroutine calls.  Also, a dynamic library is not an archive file, thus we need to compile for a shared library that's not a final program file.  
 
-The following are the Linux commands to create a dynamic library:  
+    The following are the Linux commands to create a dynamic library:  
 
 ```bash
 gcc -c -fPIC *.c
 gcc -shared -o libgreeting.so hello.o world.o
 ```
 
-When using a dynamic library, we compile using the following command.  A possible issue we might run into is if the environment variable **LD\_LIBRARY\_PATH** is already defined.  
+    When using a dynamic library, we compile using the following command.  A possible issue we might run into is if the environment variable **LD\_LIBRARY\_PATH** is already defined.  
 ```bash
 gcc main.o -L -lgreeting -o program
 ```
@@ -27,30 +27,30 @@ The following command will check if **$LD\_LIBRARY\_PATH** is already defined:
 echo $LD_LIBRARY_PATH
 ```
 
-    If it's not defined, we could use the following command to define it depending on the shell type.  
+If it's not defined, we could use the following command to define it depending on the shell type.  
 
-    **tcsh or csh**  
-   ```bash
-   setenv LD_LIBRARY_PATH /full/path/to/library/directory
-   ```
+**tcsh or csh**  
+```bash
+setenv LD_LIBRARY_PATH /full/path/to/library/directory
+```
 
-   **sh or bash**  
-   ```bash
-   LD_LIBRARY_PATH=/full/path/to/library/directory
-   export LD_LIBRARY_PATH
-   ```
+**sh or bash**  
+```bash
+LD_LIBRARY_PATH=/full/path/to/library/directory
+export LD_LIBRARY_PATH
+```
 
-    The following command checks if the system could locate the dynamic library:  
-	```bash
-	ldd program
-	```
+The following command checks if the system could locate the dynamic library:  
+```bash
+ldd program
+```
 
 2. What are the differences between static and shared libraries?  
-
+![staticvsshared](https://i.imgur.com/f2v885L.jpg)
 
 3. Basic usage **nm, ldd, ldconfig**?  
-
-
+The nm command lists the symbols used in object files.  
+The ldd command prints shared objects from other shared libraries.  The ldconfig command creates, updates and removes the necessary links and cache to other shared libraries.  
 
 # Tasks #
 0. A library is not a luxury but one of the necessities of life  
@@ -74,6 +74,9 @@ http://docencia.ac.upc.edu/FIB/USO/Bibliografia/unix-c-libraries.html#what\_is\_
 
 3. Shared libraries with GCC on Linux  
 https://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html  
+
+4. What is the Difference Between Static and Dynamic Linking  
+https://pediaa.com/what-is-the-difference-between-static-and-dynamic-linking/  
 
 # Contributor(s) #
 Jennifer Tang  
