@@ -13,10 +13,9 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *current = *head;
 	unsigned int iterate = 0;
-	/* if empty DLL, return -1 */
+
 	if (*head == NULL)
 		return (-1);
-	/* if head is the only node */
 	if (index == 0)
 	{
 		*head = current->next;
@@ -34,8 +33,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	/* if last node needs to be deleted */
 	if (current->next == NULL)
 	{
+		current->prev->next = current->next;
 		free(current->next);
-		current->prev->next = NULL;
 		return (1);
 	}
 	/* iterate to the node before the node to be deleted */
@@ -48,7 +47,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (current == NULL || current->next == NULL)
 		return (-1);
 	current->next = current->next->next;
-	free(current->next->prev);
-	current->next->prev = current;
+	current->prev->next = current->next;
+	free(current->next);
+	current->next = current;
 	return (1);
 }
