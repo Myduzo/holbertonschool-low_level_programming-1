@@ -1,8 +1,5 @@
 #include "lists.h"
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n);
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
-
 /**
  * insert_dnodeint_at_index - function that inserts a new node
  * @h: pointer to head of DLL
@@ -15,48 +12,41 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	/* declare variable for new node */
-	dlistint_t *new_node;
-	/* declare variable to hold head */
 	dlistint_t *current = *h;
-	/* declare variable to iterate to index to insert new node */
 	unsigned int iterate = 0;
-	/* allocate memory for new node but if it fails, return NULL */
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+
+	if (new_node == NULL || h == NULL)
 		return (NULL);
-	/* create new node */
 	new_node->n = n;
 	new_node->next = NULL;
 	new_node->prev = NULL;
-	/* if DLL is empty or index is more than the number of nodes, return NULL */
-	if ((current == NULL) || (current->next == NULL))
-		return (NULL);
 	/* if index is head, then, set new node as head */
 	if (idx == 0)
 	{
-		*h = new_node;
+		new_node = add_dnodeint(h, n);
 		return (new_node);
 	}
-	/* if index is first node */
-	if (idx == 1)
-		add_dnodeint(&current, n);
-	/* if index is last node */
-	if (current->next == NULL)
-		add_dnodeint_end(&current, n);
-	/**
-	 * 1. traverse to the node before index
-	 * 2. point new node to the node before index
-	 * 3. point to new node and return address of new node
-	 */
-	while (iterate < (idx - 1))
+	/* if next node is not NULL & pointsto the node before the one to delete */
+	/* if pointer is at the node before the one to delete */
+	while ((iterate <= (idx - 1)) && (current != NULL))
 	{
+		if ((current->next == NULL) && (iterate == (idx - 1)))
+		{
+			new_node = add_dnodeint_end(h, n);
+			return (new_node);
+		}
+		if (iterate == (idx - 1))
+		{
+			new_node->prev = current;
+			new_node->next = current->next;
+			current->next->prev = new_node;
+			current->next = new_node;
+			return (new_node);
+		}
 		current = current->next;
 		iterate++;
 	}
-	new_node->prev = current;
-	new_node->next = current->next;
-	current->next->prev = new_node;
-	current->next = new_node;
-	return (new_node);
+	free(new_node);
+	return (NULL);
 }
