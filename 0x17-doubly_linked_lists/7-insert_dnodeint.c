@@ -27,8 +27,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new_node = add_dnodeint(h, n);
 		return (new_node);
 	}
-	/* if next node is not NULL & pointsto the node before the one to delete */
-	/* if pointer is at the node before the one to delete */
+	/* if next node is not NULL & points to the node before insertion */
+	/* if pointer is at the node before insertion */
 	while ((iterate <= (idx - 1)) && (current != NULL))
 	{
 		if ((current->next == NULL) && (iterate == (idx - 1)))
