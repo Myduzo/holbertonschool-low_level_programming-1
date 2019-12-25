@@ -1,37 +1,10 @@
 #include "holberton.h"
 
 /**
- * puts_half - function that prints half a string
- * @str: characters
- * Description: Prints half a string
- * Return: Always 0 is success
- */
-void puts_half(char *str)
-{
-	/* initialized for full length, half length, second half & counter*/
-	int len = _strlen(str);
-	int half = len / 2;
-	int second;
-
-	/* start at the half way point and loop to the end */
-	for (second = half; second <= len; second++)
-	{
-		/* only capture char that's not the null */
-		if (second != '\0')
-		{
-			/* print the second half */
-			_putchar(str[second]);
-		}
-	}
-	/* print new line */
-	_putchar('\n');
-}
-
-/**
  * _strlen - function that returns the length of a string
- * @s: characters
+ * @s: string
  * Description: Look up man strlen for reference
- * Return: Always 0 is success
+ * Return: length of string
  */
 int _strlen(char *s)
 {
@@ -43,4 +16,32 @@ int _strlen(char *s)
 		len++;
 	}
 	return (len);
+}
+
+/**
+ * puts_half - function that prints half a string
+ * @str: string
+ * Description: 7. Winning is only half of it.
+ * Having fun is the other half
+ * Return: nothing
+ */
+void puts_half(char *str)
+{
+	/* declare variable to find the length of the string */
+	int len = (_strlen(str) + 1);
+	/* declare variable to find half the length of the string */
+	int half = (len / 2);
+	/* declare variable and initialize to iterate the string */
+	int iterate = half;
+
+	/* start iteration at the half way point until null byte */
+	/* print the char as it iterates and new line at end */
+	for (; iterate <= len; iterate++)
+	{
+		if (str[iterate] != '\0')
+		{
+			_putchar(str[iterate]);
+		}
+	}
+	_putchar('\n');
 }
