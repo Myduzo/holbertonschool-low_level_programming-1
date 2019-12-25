@@ -30,10 +30,10 @@ void puts2(char *str)
 	int iterate = 0;
 	/* declare variable to find the length of the string */
 	int len = _strlen(str);
-	
+
 	/* iterate for every other char until null byte */
 	/* print the char as it iterates and new line at end */
-	for (; iterate <= len; iterate+=2)
+	for (; iterate <= len; iterate += 2)
 	{
 		if (str[iterate] != '\0')
 		{
