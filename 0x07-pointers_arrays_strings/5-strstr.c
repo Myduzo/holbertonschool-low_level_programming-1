@@ -2,43 +2,49 @@
 #include <stdio.h>
 
 /**
- * *_strstr - function that locates a substring
- * @haystack: letters
- * @needle: letters
- * Description: Locates the first occurrence of the substring needle
- * in the string haystack
- * Return: Pointer to the beginning of the substring or NULL
+ * _strstr - function that locates a substring
+ * @haystack: string
+ * @needle: substring
+ * Description: 5. strstr
+ * Return: see below
+ * 1. upon success, return pointer to beginning of substring
+ * 2. upon fail, return NULL
  */
 char *_strstr(char *haystack, char *needle)
 {
-	/* declare iteration variables */
-	int i1;
-	int i2;
-
-	/* stop loop at null byte */
-	for (i1 = 0; (haystack != NULL || haystack[i1] != '\0'); i1++)
+	/* declare and initialize pointers to string and substring */
+	char *ptr_h = haystack;
+	char *ptr_n = needle;
+	/* if string or substring doesn't exists, return NULL */
+	if (haystack == NULL)
 	{
-		/* if the loop matches a char in needle */
-		if (haystack[i1] == needle[0])
+		return (NULL);
+	}
+	if (needle == NULL)
+	{
+		return (NULL);
+	}
+	/**
+	 * 1. iterate through the string
+	 * 2. also iterate through substring to find a match
+	 * 3. if found, return pointer to first occurrence of it in the string
+	 * 4. if substring is not found, return NULL
+	 * 5. all else, return NULL
+	 */
+	for (; *haystack; haystack++)
+	{
+		for (ptr_h = haystack, ptr_n = needle; *ptr_h == *ptr_n; ++ptr_h, ++ptr_n)
 		{
-			/* move pointer to get the next matching char */
-			for (i2 = 0; haystack[i1 + i2] == needle[i2]; i2++)
-			{
-				/* if needle is just null byte */
-				if (needle[i2] == '\0')
-				{
-					/* return the substring */
-					return (&haystack[i1]);
-				}
-			}
+			;
+		}
+		if (*ptr_n == '\0')
+		{
+			return (haystack);
+		}
+		if (!(ptr_n))
+		{
+			return (NULL);
 		}
 	}
-	/* if needle is just a null byte */
-	if (needle[0] == '\0')
-	{
-		/* return the haystack string */
-		return (haystack);
-	}
-	/* return when there's nothing in needle */
 	return (NULL);
 }
