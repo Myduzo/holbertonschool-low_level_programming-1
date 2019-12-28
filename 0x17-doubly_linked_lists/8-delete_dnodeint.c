@@ -13,42 +13,41 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *current = *head;
 	unsigned int iterate = 0;
-
+	/* if empty list */
 	if (*head == NULL)
 		return (-1);
+	/* if head is to be deleted */
 	if (index == 0)
 	{
 		*head = current->next;
+		current->prev = NULL;
 		free(current);
 		return (1);
 	}
-	/* if the node after head needs to be deleted */
-	if (index == 1)
+	/* if index is not out of range */
+	/* if pointer is at the node before the one to be delete */
+	while ((iterate <= (index - 1)) && (current != NULL))
 	{
-		*head = current->next->next;
-		free(current->next);
-		current->next->prev = *head;
-		return (1);
-	}
-	/* if last node needs to be deleted */
-	if (current->next == NULL)
-	{
-		current->prev->next = current->next;
-		free(current->next);
-		return (1);
-	}
-	/* iterate to the node before the node to be deleted */
-	while ((current != NULL) && (iterate < index - 1))
-	{
+		if ((current->next->next == NULL) && (iterate == (index - 1)))
+		{
+			current->prev->next = current->next;
+			free(current->next);
+			return (1);
+		}
 		current = current->next;
 		iterate++;
 	}
-	/* if index is more than number of nodes, then, return -1 */
-	if (current == NULL || current->next == NULL)
-		return (-1);
-	current->next = current->next->next;
-	current->prev->next = current->next;
-	free(current->next);
-	current->next = current;
-	return (1);
+	while (current != NULL)
+	{
+		if (iterate == index)
+		{
+			current->prev->next = current->next;
+			current->next->prev = current->prev;
+			free(current);
+			return (1);
+		}
+		current = current->next;
+		iterate++;
+	}
+	return (-1);
 }
