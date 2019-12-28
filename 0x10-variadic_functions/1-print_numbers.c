@@ -1,42 +1,44 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers - function that prints numbers
- * @separator: special characters
- * @n: integer type
+ * print_numbers - function that prints integers
+ * @separator: string between integers
+ * @n: number of integers
  * Description: 1. To be is to be the value of a variable
  * This program will print numbers separated by
  * special characters follow by a new line.
- * Return: N/A
+ * Return: nothing
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
+	/* declare iteration variable */
+	unsigned int iterate;
 	/* declare a va_list type variable */
 	va_list argList;
-	/* declare iteration variable */
-	unsigned int i;
-	/* use int parameter and va_start to initialize the va_list variable */
+	/* use va_start to initialize the va_list variable */
 	va_start(argList, n);
 	/* if int parameter is 0 or NULL, return nothing */
 	if (n == 0)
 	{
-		return;
+		printf("\n");
 	}
 	/**
-	 * iterate all arguments
-	 * print number and then, print separator
-	 * if separator is not NULL, print
+	 * 1. iterate through all arguments
+	 * 2. print integers and then, print separator
+	 * 3. if separator is not NULL, print it
 	 */
-	for (i = 0; i < n; i++)
+	if (n >= 1)
 	{
-		printf("%d", va_arg(argList, int));
-		if ((separator != NULL) && (i != (n - 1)))
+		for (iterate = 0; iterate < n; iterate++)
 		{
-			printf("%c ", *separator);
+			printf("%d", va_arg(argList, int));
+			if ((separator) && (iterate != (n - 1)))
+			{
+				printf("%c", *separator);
+			}
 		}
+		printf("\n");
 	}
 	/* clean memory reserved for argList */
 	va_end(argList);
-	/* print new line */
-	printf("\n");
 }
