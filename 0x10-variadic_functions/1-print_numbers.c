@@ -12,29 +12,37 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	/* declare iteration variable */
-	unsigned int iterate;
+	unsigned int i;
 	/* declare a va_list type variable */
 	va_list argList;
 	/* use va_start to initialize the va_list variable */
 	va_start(argList, n);
-	/* if int parameter is 0 or NULL, return nothing */
+	/* if there's no arguments, then print new line */
 	if (n == 0)
 	{
 		printf("\n");
 	}
 	/**
-	 * 1. iterate through all arguments
-	 * 2. print integers and then, print separator
-	 * 3. if separator is not NULL, print it
+	 * 1. if there are arguments, iterate through them
+	 * 2. if there's a separator, print args & sep
+	 * 3. if separator is 0, print args only
+	 * 4. if separator is NULL, print args only
 	 */
 	if (n >= 1)
 	{
-		for (iterate = 0; iterate < n; iterate++)
+		for (i = 0; i < n; i++)
 		{
-			printf("%d", va_arg(argList, int));
-			if ((separator) && (iterate != (n - 1)))
+			if (separator)
 			{
-				printf("%c", *separator);
+				printf("%d", va_arg(argList, int));
+			}
+			if ((separator != NULL) && (i < (n - 1)))
+			{
+				printf("%s", separator);
+			}
+			if (((separator == 0) || (separator == NULL)) && (i < (n - 1)))
+			{
+				printf("%d", va_arg(argList, int));
 			}
 		}
 		printf("\n");
