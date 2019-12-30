@@ -25,15 +25,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (1);
 	}
 	/* if index is not out of range */
+	/* if index is the last node */
 	while ((iterate <= (index - 1)) && (current != NULL))
 	{
 		if ((current->next == NULL) && (iterate == (index - 1)))
 		{
-			current->prev->next = current->next;
-			free(current->next);
+			current->prev->next = NULL;
+			free(current);
 			return (1);
 		}
-		if (iterate == index)
+		if (iterate == (index -1))
 		{
 			current->prev->next = current->next;
 			current->next->prev = current->prev;
