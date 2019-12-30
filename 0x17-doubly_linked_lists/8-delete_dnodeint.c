@@ -19,26 +19,20 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	/* if head is to be deleted */
 	if (index == 0)
 	{
-		*head = current->next;
-		current->prev = NULL;
+		*head = (*head)->next;
+		(*head)->prev = NULL;
 		free(current);
 		return (1);
 	}
 	/* if index is not out of range */
-	/* if pointer is at the node before the one to be delete */
 	while ((iterate <= (index - 1)) && (current != NULL))
 	{
-		if ((current->next->next == NULL) && (iterate == (index - 1)))
+		if ((current->next == NULL) && (iterate == (index - 1)))
 		{
 			current->prev->next = current->next;
 			free(current->next);
 			return (1);
 		}
-		current = current->next;
-		iterate++;
-	}
-	while (current != NULL)
-	{
 		if (iterate == index)
 		{
 			current->prev->next = current->next;
