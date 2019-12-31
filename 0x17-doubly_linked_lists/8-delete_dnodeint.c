@@ -11,27 +11,22 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	/* declare and initialize pointer to head */
 	dlistint_t *current = *head;
-	/* declare and initialize an iterator */
 	unsigned int iterate = 0;
-	/* if empty list */
+	/* if the list is empty */
 	if (*head == NULL)
 		return (-1);
 	/* if head is to be deleted */
 	if (index == 0)
 	{
-		*head = current->next;
+		*head = (*head)->next;
 		free(current);
 		return (1);
 	}
-	/**
-	 * 1. iterate to node to be deleted
-	 * 2. if index is out of range
-	 * 3. if last node is to be deleted
-	 * 4. if next node is not NULL, move pointer
-	 * 5. if previous node is not NULL, move pointer
-	 */
+	/* 1. if index is out of range */
+	/* 2. if last node is to be deleted */
+	/* 3. if next node is not NULL, move pointer */
+	/* 4. if previous node is not NULL, move pointer */
 	while ((iterate < index) && (current != NULL))
 	{
 		current = current->next;
