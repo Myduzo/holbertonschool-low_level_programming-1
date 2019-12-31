@@ -3,23 +3,35 @@
 /**
  * pop_listint - function that deletes the head node
  * @head: pointer to head of list
+ * Description: 6. Pop
  * Return: see below
  * 1. upon success, return data of head
- * 2. upon fail, return 0
+ * 2. upon fail or empty list, return 0
  */
 int pop_listint(listint_t **head)
 {
 	/* declare variable to point to head node */
-	listint_t *current = *head;
-	/* if it's an empty list, return 0 */
+	listint_t *current;
+	int iterate = 0;
+
 	if (*head == NULL)
+	{
 		return (0);
-	/**
-	 * 1. move head pointer to point to the next node
-	 * 2. free current pointer that points to head
-	 * 3. return data of old head
-	 */
-	*head = current->next;
-	free(current);
+	}
+	current = *head;
+	while (iterate)
+	{
+		if ((*head)->next == NULL)
+		{
+			free(*head);
+		}
+		if (*head)
+		{
+			*head = current->next;
+			free(current);
+		}
+		current = current->next;
+		iterate++;
+	}
 	return (current->n);
 }
