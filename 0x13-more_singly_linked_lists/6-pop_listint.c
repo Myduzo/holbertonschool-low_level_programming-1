@@ -12,26 +12,25 @@ int pop_listint(listint_t **head)
 {
 	/* declare variable to point to head node */
 	listint_t *current;
-	int iterate = 0;
-
+	/* declare variable to hold data that would be deleted */
+	int data;
+	/* if list is empty */
 	if (*head == NULL)
 	{
 		return (0);
 	}
-	current = *head;
-	while (iterate)
+	/**
+	 * 1. initialize current to head node
+	 * 2. store head node's data into variable
+	 * 3. move head to the next node
+	 * 4. free node and return data
+	 */
+	if (*head)
 	{
-		if ((*head)->next == NULL)
-		{
-			free(*head);
-		}
-		if (*head)
-		{
-			*head = current->next;
-			free(current);
-		}
-		current = current->next;
-		iterate++;
+		current = *head;
+		data = (*head)->n;
+		*head = (*head)->next;
+		free(current);
 	}
-	return (current->n);
+	return (data);
 }
