@@ -14,9 +14,7 @@ int _strlen(char *s)
 	int count;
 
 	for (count = 0; s[count] != '\0'; count++)
-	{
 		len++;
-	}
 	return (len);
 }
 
@@ -32,9 +30,7 @@ int _strlen(char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	/* declare pointer to struct */
 	dog_t *ptr;
-	/* declare iteration variables */
 	int i1, i2;
 	/**
 	 * 1. allocate memory for struct and its elements
@@ -44,9 +40,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	 */
 	ptr = malloc(sizeof(dog_t));
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	ptr->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if (ptr->name == NULL)
 	{
@@ -68,13 +62,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (ptr)
 	{
 		for (i1 = 0; name[i1] != '\0'; i1++)
-		{
 			ptr->name[i1] = name[i1];
-		}
 		for (i2 = 0; owner[i2] != '\0'; i2++)
-		{
 			ptr->owner[i2] = owner[i2];
-		}
 		ptr->name[i1] = '\0';
 		ptr->owner[i2] = '\0';
 		ptr->age = age;
