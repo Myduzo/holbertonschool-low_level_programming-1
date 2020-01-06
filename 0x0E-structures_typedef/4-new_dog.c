@@ -4,9 +4,9 @@
 
 /**
  * _strlen - function that returns the length of a string
- * @s: characters
+ * @s: string
  * Description: Look up man strlen for reference
- * Return: Always 0 is success
+ * Return: length of string
  */
 int _strlen(char *s)
 {
@@ -21,12 +21,14 @@ int _strlen(char *s)
 }
 
 /**
- * *new_dog - function that creates a new dog
+ * new_dog - function that creates a new struct
  * @name: char type
  * @age: float type
  * @owner: char type
- * Description: Define new type
- * Return: NULL if fail
+ * Description: 4. A door is what a dog is perpetually on the wrong side of
+ * Return: see below
+ * 1. upon success, returns pointer to allocated memory
+ * 2. upon fail, returns NULL
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -35,14 +37,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* declare iteration variables */
 	int i1, i2;
 	/**
-	 * allocate memory for struct and its members
-	 * use _strlen to get the size
-	 * free allocated memory where makes sense
-	 * return NUll if fail
+	 * 1. allocate memory for struct and its elements
+	 * 2. use _strlen to get the size
+	 * 3. free allocated memory where makes sense
+	 * 4. return NUll if fail
 	 */
 	ptr = malloc(sizeof(dog_t));
 	if (ptr == NULL)
+	{
 		return (NULL);
+	}
 	ptr->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if (ptr->name == NULL)
 	{
@@ -56,13 +60,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(ptr);
 		return (NULL);
 	}
-	/* store a copy of name & owner */
-	for (i1 = 0; name[i1] != '\0'; i1++)
-		ptr->name[i1] = name[i1];
-	for (i2 = 0; owner[i2] != '\0'; i2++)
-		ptr->owner[i2] = owner[i2];
-	/* point to age */
-	ptr->age = age;
-	/* return pointer to allocated memory */
+	/**
+	 * 1. if struct was successfully created
+	 * 2. store a copy of name, owner and age into it
+	 * 3. free allocated memory
+	 */
+	if (ptr)
+	{
+		for (i1 = 0; name[i1] != '\0'; i1++)
+		{
+			ptr->name[i1] = name[i1];
+		}
+		for (i2 = 0; owner[i2] != '\0'; i2++)
+		{
+			ptr->owner[i2] = owner[i2];
+		}
+		ptr->name[i1] = '\0';
+		ptr->owner[i2] = '\0';
+		ptr->age = age;
+	}
 	return (ptr);
 }
