@@ -11,8 +11,12 @@
  */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
+	/* declare variable to return index of key/value pair */
 	unsigned long int index_pair;
 
-	index_pair = (hash_djb2(key) / size);
+	/* half the size of the array */
+	index_pair = (hash_djb2(key) % size);
+
+	/* return index of key/value pair */
 	return (index_pair);
 }
