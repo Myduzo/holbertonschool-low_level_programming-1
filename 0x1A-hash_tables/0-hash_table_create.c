@@ -14,7 +14,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	unsigned long int iterate = 0;
 	hash_table_t *the_table = NULL;
 	/* if there's no valid size, return NULL */
-	if (size < 1)
+	if (size <= 0)
 	{
 		return (NULL);
 	}
