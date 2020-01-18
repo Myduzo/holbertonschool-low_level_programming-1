@@ -11,25 +11,32 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	/* declare variables for iteration and hash table */
-	unsigned long int iterate;
-	hash_table_t *the_hash;
-
-	/* allocate memory for hash table */
-	the_hash = malloc(sizeof(hash_table_t));
-	if (the_hash == NULL)
+	unsigned long int iterate = 0;
+	hash_table_t *the_table = NULL;
+	/* if there's no valid size, return NULL */
+	if (size < 1)
 	{
 		return (NULL);
 	}
-
-	/* allocate memory for array entries */
-	the_hash->array = malloc(sizeof(hash_table_t) * size);
-
-	/* set NULL into each entry */
-	for (iterate = 0; iterate < size; iterate++)
+	/* allocate memory for hash table */
+	the_table = malloc(sizeof(hash_table_t));
+	if (the_table == NULL)
 	{
-		the_hash->array[iterate] = NULL;
+		return (NULL);
 	}
-
+	/* allocate memory for array */
+	the_table->array = malloc(sizeof(hash_node_t) * size);
+	if (the_table->array == NULL)
+	{
+		return (NULL);
+	}
+	/* assign the size to the array */
+	the_table->size = size;
+	/* set NULL into each entry */
+	for (; iterate < size; iterate++)
+	{
+		the_table->array[iterate] = NULL;
+	}
 	/* return pointer to hash table */
-	return (the_hash);
+	return (the_table);
 }
