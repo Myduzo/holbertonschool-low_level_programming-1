@@ -10,16 +10,20 @@ void hash_table_delete(hash_table_t *ht)
 {
 	/* declare variable for index & pointer to it */
 	unsigned long int index = 0;
-	hash_node_t *current = ht->array[index];
+	hash_node_t *current = NULL;
 
-	/* iterate through linked list to free it */
-	while (current != NULL)
+	/* iterate through array, in order to free linked list */
+	while (index < ht->size)
 	{
-		current = ht->array[index]->next;
-		free(ht->array[index]->value);
-		free(ht->array[index]->key);
-		free(ht->array[index]);
-		ht->array[index] = current;
+		while (ht->array[index] != NULL)
+		{
+			current = ht->array[index]->next;
+			free(ht->array[index]->value);
+			free(ht->array[index]->key);
+			free(ht->array[index]);
+			ht->array[index] = current;
+		}
+		index++;
 	}
 	/* free array and hash table */
 	free(ht->array);
