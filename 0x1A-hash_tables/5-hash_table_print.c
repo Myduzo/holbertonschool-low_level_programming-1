@@ -8,24 +8,31 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	/* declare variable for index & pointer to it */
+	/* declare variable for index */
 	unsigned long int index = 0;
-	hash_node_t *current = NULL;
 	/* if hash table is NULL, don't print anything */
 	if (ht == NULL)
 	{
-		;
+		printf("{}\n");
 	}
-	/* set pointer to the index */
-	current = ht->array[index];
-	/* iterate through the linked list and print if not NULL */
-	while (index < ht->size)
+	/* iterate through the linked list & print if not NULL */
+	if (ht)
 	{
-		if (current != NULL)
+		printf("{");
+		while (index < ht->size)
 		{
-			printf("%s: %s", current->key, current->value);
+			if (ht->array[index] != NULL)
+			{
+				printf("'%s': ", ht->array[index]->key);
+				printf("'%s', ", ht->array[index]->value);
+			}
+			if ((ht->array[index] != NULL) && (index == ht->size - 1))
+			{
+				printf("'%s': ", ht->array[index]->key);
+				printf("'%s'", ht->array[index]->value);
+			}
+			index++;
 		}
-		index++;
+		printf("}\n");
 	}
-	printf("\n");
 }
