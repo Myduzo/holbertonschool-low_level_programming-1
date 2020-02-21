@@ -1,0 +1,3 @@
+# The all rule builds an executable called holberton
+all: holberton.c
+	gcc main.c holberton.c -o holberton
