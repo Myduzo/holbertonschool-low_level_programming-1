@@ -1,0 +1,6 @@
+# Create variables to simplify handling of the all rule that builds an executable called holberton
+CC=gcc
+SRC=main.c holberton.c
+
+all: holberton.c
+	$(CC) $(SRC) -o holberton
