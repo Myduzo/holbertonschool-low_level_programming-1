@@ -1,0 +1,10 @@
+# Create Makefile that builds an executable called holberton that recompiles only updated sources files
+CC=gcc
+SRC=main.c holberton.c
+OBJ:=$(SRC:.c=.o)
+NAME=holberton
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(SRC)
