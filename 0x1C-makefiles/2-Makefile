@@ -7,4 +7,4 @@ NAME=holberton
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(SRC)
+	$(CC) $(OBJ) -o $(NAME)
