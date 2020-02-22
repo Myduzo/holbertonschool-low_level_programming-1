@@ -6,6 +6,3 @@ NAME=holberton
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
