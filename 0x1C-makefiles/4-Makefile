@@ -1,0 +1,20 @@
+# Create Makefile that builds an executable called holberton that recompiles, clean and force recompilation
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -pedantic
+SRC=main.c holberton.c
+OBJ=$(SRC:.c=.o)
+NAME=holberton
+RM=rm -f
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
