@@ -2,12 +2,12 @@
 CFLAGS=-Wall -Werror -Wextra -pedantic
 CC=gcc $(CFLAGS)
 SRC=main.c holberton.c
-OBJ=m.h $(SRC:.c=.o)
+OBJ=$(SRC:.c=.o)
 NAME=holberton
 
 .PHONY: all clean oclean fclean re
 
-all: $(OBJ)
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
